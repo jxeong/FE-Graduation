@@ -1,0 +1,47 @@
+/* src/styles/Overview.css */
+.overview-container {
+    padding: 30px 0px;
+    font-family: 'Pretendard', sans-serif;
+    display: flex;
+    justify-content: left;
+  }
+  
+  .overview-text {
+    max-width: 700px;
+    color: #222;
+  }
+  
+  .overview-text h1 {
+    color: rgb(121, 68, 255);
+    font-size: 23px;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 20px;
+  }
+  
+  .overview-text h2 {
+    color: rgb(121, 68, 255);
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+  
+  .overview-text h3 {
+    color: rgb(121, 68, 255);
+    font-size: 18px;
+    font-weight: 500;
+    margin: 4px 0;
+  }
+  
+  .overview-text .location {
+    margin-bottom: 30px;
+  }
+  
+  .overview-text p {
+    color: #333;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.9;
+    margin-bottom: 40px;
+  }
+  

@@ -9,29 +9,12 @@ body {
 }
 
 .app-container {
-  max-width: 375px;
   margin: auto;
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
 
-header {
-  text-align: center;
-  padding: 10px 0;
-  font-size: 24px;
-  color: #ffffff;
-  background-color: rgb(0, 74, 4);
-}
 
-footer {
-  margin: 20px;
-  text-align: left;
-  font-size: 12px;
-  color: #888;
-  padding: 32px 0 16px;
-  border-top: 1px solid #ddd;
-  line-height: 1.2;
-}
 
 section {
   margin: 20px;
@@ -51,4 +34,28 @@ p {
   margin-right: 10px;
   color: #0036a3;
   text-decoration: underline;
+}
+
+/* 모바일 화면용 스타일 (375px 이하) */
+@media (max-width: 375px) {
+  header {
+    font-size: 18px;
+    padding: 8px 0;
+  }
+
+  .app-container {
+    padding: 0 10px;
+  }
+
+  section {
+    margin: 15px 10px 30px;
+  }
+
+  h1, h2 {
+    font-size: 16px;
+  }
+
+  p {
+    font-size: 14px;
+  }
 }

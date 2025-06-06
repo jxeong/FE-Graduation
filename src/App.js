@@ -2,10 +2,8 @@
 import React from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Overview from './components/Overview';
-import DateSection from './components/DateSection';
-import Location from './components/Location';
-import ExhibitionContent from './components/ExhibitionContent';
+import Overview from './pages/Overview';
+import ExhibitionContent from './pages/ExhibitionContent';
 import './App.css';
 
 function App() {
@@ -13,9 +11,7 @@ function App() {
     <div className="app-container">
       <Header />
       <Overview />
-      <DateSection />
-      <Location />
-      <ExhibitionContent />
+      {/* <ExhibitionContent /> */}
       <Footer />
     </div>
   );

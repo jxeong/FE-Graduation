@@ -1,0 +1,37 @@
+footer {
+  text-align: left;
+  padding: 30px 20px; /* 세로여백 가로여백 */
+  background-color: rgb(29, 30, 29);
+  width: 100%; /* 화면 너비에 맞게 */
+  box-sizing: border-box;
+}
+
+  footer p {
+    color: #ffffff;
+    font-size: 11px;
+    line-height: 0.6;
+  }
+
+  .kakao-share-btn {
+    width: 50px;
+    text-align: center;
+    padding-top: 10px;
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  .kakao-share-btn img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 5px;
+  }
+  
+  .kakao-share-btn p {
+    color: #ffffff;
+    font-size: 12px;
+    line-height: 1.4;
+    margin: 0;
+  }
+  
