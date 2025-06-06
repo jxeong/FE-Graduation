@@ -3,7 +3,6 @@ import React from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Overview from './pages/Overview';
-import ExhibitionContent from './pages/ExhibitionContent';
 import './App.css';
 
 function App() {
@@ -11,7 +10,6 @@ function App() {
     <div className="app-container">
       <Header />
       <Overview />
-      {/* <ExhibitionContent /> */}
       <Footer />
     </div>
   );

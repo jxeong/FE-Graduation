@@ -1,4 +1,4 @@
-// src/components/ExhibitionContent.jsx
+// src/pages/ExhibitionContent.jsx
 import React from 'react';
 
 const ExhibitionContent = () => (

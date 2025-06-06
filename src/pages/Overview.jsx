@@ -1,4 +1,4 @@
-// src/components/Overview.jsx
+// src/pages/Overview.jsx
 import React from 'react';
 import '../styles/Overview.css';
 

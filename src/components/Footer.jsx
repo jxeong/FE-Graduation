@@ -23,10 +23,11 @@ const Footer = () => {
       <p>서울특별시 도봉구 삼양로144길 33</p>
       <p>Instagram: @인스타그램아이디</p>
 
-      <div className="kakao-share-btn">
-      <img src={kakaoIcon} alt="카카오톡 공유" />
-      <p>카카오톡<br />공유하기</p>
-      </div>
+      <button id="kakao-share-btn">
+        <img src={kakaoIcon} alt="카카오톡 공유 아이콘" />
+        <span>카카오톡 공유</span>
+      </button>
+
     </footer>
   );
 };
