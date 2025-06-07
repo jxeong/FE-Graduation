@@ -1,31 +1,74 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';  // Switch -> Routes로 변경
+// src/App.js
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+import { AnimatePresence, motion } from 'framer-motion';
+
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ScrollToTopButton from './components/ScrollToTopButton';
+import CustomCursor from './components/CustomCursor';
 import Overview from './pages/Overview';
 import PdfViewer from './pages/PdfViewer';
-import ExhibitionContetnt from './pages/ExhibitionContent';
+import ExhibitionContent from './pages/ExhibitionContent';
 import ProjectDetail from './pages/ProjectDetail';
 import Thanksto from './pages/Thanksto';
+import Intro from './components/Intro';
+
 import './App.css';
 
-function App() {
-  return (
-    <Router>  {/* Router로 앱을 감싸 라우팅 기능 활성화 */}
-      <div className="app-container">
-        <Header />
+// 페이지 전환 애니메이션 wrapper
+const PageWrapper = ({ children }) => (
+  <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    transition={{ duration: 0.4 }}
+  >
+    {children}
+  </motion.div>
+);
 
-        {/* Routes로 변경 */}
-        <Routes>
-          <Route path="/" element={<Overview />} />  {/* 기본 경로 (홈 페이지) */}
-          <Route path="/pdf" element={<PdfViewer />} />  {/* /pdf 페이지 */}
-          <Route path="/projects" element={<ExhibitionContetnt />} />  {/* 프로젝트 페이지 */}
-          <Route path="/project/:id" element={<ProjectDetail />} />
-          <Route path="/thanksto" element={<Thanksto />} />  {/* /크레딧 페이지 */}
-        </Routes>
-        <ScrollToTopButton />
-        <Footer />
+function AnimatedRoutes() {
+  const location = useLocation();
+
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<PageWrapper><Overview /></PageWrapper>} />
+        <Route path="/pdf" element={<PageWrapper><PdfViewer /></PageWrapper>} />
+        <Route path="/projects" element={<PageWrapper><ExhibitionContent /></PageWrapper>} />
+        <Route path="/project/:id" element={<PageWrapper><ProjectDetail /></PageWrapper>} />
+        <Route path="/thanksto" element={<PageWrapper><Thanksto /></PageWrapper>} />
+      </Routes>
+    </AnimatePresence>
+  );
+}
+
+function App() {
+  const [showIntro, setShowIntro] = useState(true);
+  const [fadeOut, setFadeOut] = useState(false);
+
+  const handleIntroClick = () => {
+    setFadeOut(true);
+    setTimeout(() => {
+      setShowIntro(false);
+    }, 700);
+  };
+
+  return (
+    <Router>
+      <div className="app-container">
+        <CustomCursor />
+        {showIntro ? (
+          <Intro onClickLogo={handleIntroClick} fadeOut={fadeOut} />
+        ) : (
+          <>
+            <Header />
+            <AnimatedRoutes />
+            <ScrollToTopButton />
+            <Footer />
+          </>
+        )}
       </div>
     </Router>
   );

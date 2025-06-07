@@ -21,7 +21,9 @@ const Header = () => {
   return (
     <header className="header">
       <div className="title">
-        <Link to="/">전시 로고 자리</Link>
+        <Link to="/">
+          <img src="/images/exampleLogo2.png" alt="전시 로고" className="header-logo" />
+        </Link>
       </div>
 
       <div className={`nav ${isMenuOpen ? 'active' : ''}`}>

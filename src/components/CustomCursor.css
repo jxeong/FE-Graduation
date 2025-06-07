@@ -1,0 +1,23 @@
+/* 전체 커서 없애기 */
+body {
+  cursor: none;
+}
+
+/* 커스텀 커서 */
+.custom-cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  background-color: black;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+  background-color: white;
+  z-index: 9999;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.custom-cursor.white {
+  background-color: white;
+}

@@ -3,8 +3,6 @@ import { Box } from '@mui/material';
 import '../styles/PdfViewer.css';  // CSS 파일 추가
 
 const PdfViewer = () => {
-  const pdfUrl = '/sample.pdf';  // public 폴더에 위치한 PDF 파일 경로
-
   return (
     <Box className="pdf-viewer-container">
       <div className="pdf-texts">

@@ -8,23 +8,24 @@
 
 .project-detail h1 {
   color: rgb(121, 68, 255);
-  font-size: 24px;
+  font-size: 23px;
   font-weight: 600;
   margin: 20px 0;
+  margin-top: 10px;
 }
 
 .project-detail h2 {
   font-size: 18px;
   color: #666;
-  font-weight: 500;
-  margin-bottom: 15px;
+  font-weight: 400;
+  margin-bottom: 10px;
 }
 
 .project-detail .team,
 .project-detail .keywords,
 .project-detail .technologies,
 .project-detail .members {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
   margin: 5px 0;
 }
@@ -53,10 +54,6 @@
   transition: transform 0.3s ease;
 }
 
-/* .project-detail .image-gallery img:hover {
-  transform: scale(1.03);
-} */
-
 .project-detail a {
   color: rgb(121, 68, 255);
   text-decoration: none;
@@ -84,6 +81,42 @@
 .custom-section p {
   font-size: 14px;
   color: #444;
+}
+
+.back-button {
+  margin-bottom: 20px;
+  font-size: 14px;
+  background: none;
+  border: none;
+  color: rgb(121, 68, 255);
+  cursor: pointer;
+  padding: 0;
+}
+
+.back-button:hover {
+  text-decoration: None;
+  color: rgb(0, 0, 0);
+}
+
+.navigation-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #ddd;
+}
+
+.navigation-footer button {
+  background: none;
+  border: none;
+  font-size: 14px;
+  color: #444;
+  cursor: pointer;
+}
+
+.navigation-footer button:hover {
+  color: rgb(121, 68, 255);
+  text-decoration: None;
 }
 
 /* 반응형 */

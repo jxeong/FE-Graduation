@@ -1,23 +1,32 @@
-// src/pages/ProjectDetail.jsx
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { projectDetails } from '../data/projectDetails';
 import '../styles/ProjectDetail.css';
 
 const ProjectDetail = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const project = projectDetails[id];
+  const ids = Object.keys(projectDetails).map(Number).sort((a, b) => a - b);
+  const currentIndex = ids.indexOf(Number(id));
+
+  const prevId = ids[currentIndex - 1];
+  const nextId = ids[currentIndex + 1];
 
   if (!project) return <p>해당 프로젝트를 찾을 수 없습니다.</p>;
 
   return (
     <div className="project-detail">
+      {/* 1. 상단 돌아가기 버튼 */}
+      <button className="back-button" onClick={() => navigate(-1)}>← 이전 페이지</button>
+
+      {/* 본문 */}
       {project.subtitle && <h2>{project.subtitle}</h2>}
       <h1>{project.title}</h1>
-      <p><strong>팀명:</strong> {project.team}</p>
-      <p><strong>키워드:</strong> {project.keywords?.join(', ')}</p>
+      <p><strong>|</strong> {project.team}</p>
+      <p><strong>KEYWORDS </strong> {project.keywords?.join(', ')}</p>
 
-      {project.images && project.images.length > 0 && (
+      {project.images?.length > 0 && (
         <div className="image-gallery">
           {project.images.map((img, index) => (
             <img src={img} alt={`project-${project.id}-img-${index}`} key={index} />
@@ -59,6 +68,20 @@ const ProjectDetail = () => {
           <p>{project.extra.customSection}</p>
         </div>
       )}
+
+      {/* 2. 하단 이전/다음 글 이동 */}
+      <div className="navigation-footer">
+        {prevId && (
+          <button onClick={() => navigate(`/project/${prevId}`)}>
+            ← {projectDetails[prevId].title}
+          </button>
+        )}
+        {nextId && (
+          <button onClick={() => navigate(`/project/${nextId}`)}>
+            {projectDetails[nextId].title} →
+          </button>
+        )}
+      </div>
     </div>
   );
 };
