@@ -45,3 +45,26 @@
     margin-bottom: 40px;
   }
   
+  /* 디데이 */
+  .countdown {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+.time-unit {
+  text-align: center;
+  padding: 20px;
+  margin-bottom: 40px;
+}
+
+.time-unit span {
+  font-size: 1.5em;
+  font-weight: 200;
+}
+
+.time-unit p {
+  font-size: 13px;
+  margin-top: 5px;
+  margin-bottom: 0;
+}

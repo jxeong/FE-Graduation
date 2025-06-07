@@ -1,5 +1,6 @@
-// src/components/Header.jsx
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';  // Link 임포트
+import { CSSTransition } from 'react-transition-group';
 import './Header.css';
 
 const Header = () => {
@@ -8,12 +9,11 @@ const Header = () => {
 
   const toggleMenu = () => {
     if (isMenuOpen) {
-      // 메뉴 닫기 애니메이션 실행 후 상태 변경
       setIsClosing(true);
       setTimeout(() => {
         setIsMenuOpen(false);
-        setIsClosing(false); // 애니메이션 끝난 후 상태 초기화
-      }, 300); // 애니메이션 지속 시간 (0.3초)
+        setIsClosing(false);
+      }, 300);
     } else {
       setIsMenuOpen(true);
     }
@@ -21,27 +21,42 @@ const Header = () => {
 
   return (
     <header className="header">
-      <div className="title">전시제목</div>
+      <div className="title">
+        <Link to="/">전시제목</Link>
+      </div>
+
       <div className={`nav ${isMenuOpen ? 'active' : ''}`}>
-        <a href="#home">HOME</a>
-        <a href="#projects">PROJECTS</a>
-        <a href="#credits">CREDITS</a>
+        <Link to="/projects">
+          <a>PROJECTS</a>
+        </Link>
+        <Link to="/pdf">
+          <a>BOOKS</a>
+        </Link>
+        <Link to="/thanks">
+          <a>THANKSTO</a>
+        </Link>
       </div>
       <div className="hamburger" onClick={toggleMenu}>
         <a>MENU</a>
       </div>
 
-      {/* Menu Overlay */}
       {isMenuOpen && (
         <div className={`menu-overlay ${isClosing ? 'closing' : ''}`}>
           <div className="menu-content">
-            <a href="#home">HOME</a>
-            <a href="#projects">PROJECTS</a>
-            <a href="#credits">CREDITS</a>
+            <Link to="/projects" onClick={toggleMenu}>
+              <a>PROJECTS</a>
+            </Link>
+            <Link to="/pdf" onClick={toggleMenu}>
+              <a>BOOKS</a>
+            </Link>
+            <Link to="/thanks" onClick={toggleMenu}>
+              <a>THANKSTO</a>
+            </Link>
             <button className="close-button" onClick={toggleMenu}>close</button>
           </div>
         </div>
       )}
+
     </header>
   );
 };
