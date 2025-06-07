@@ -1,0 +1,103 @@
+.project-detail {
+  padding: 30px;
+  font-family: 'Pretendard', sans-serif;
+  max-width: 900px;
+  margin: 0 auto;
+  color: #222;
+}
+
+.project-detail h1 {
+  color: rgb(121, 68, 255);
+  font-size: 24px;
+  font-weight: 600;
+  margin: 20px 0;
+}
+
+.project-detail h2 {
+  font-size: 18px;
+  color: #666;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.project-detail .team,
+.project-detail .keywords,
+.project-detail .technologies,
+.project-detail .members {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 5px 0;
+}
+
+.project-detail .description {
+  font-size: 15px;
+  line-height: 1.8;
+  margin: 20px 0;
+  color: #333;
+}
+
+.project-detail .image-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.project-detail .image-gallery img {
+  width: 100%;
+  max-width: 280px;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 4px;
+  background-color: #f0f0f0;
+  transition: transform 0.3s ease;
+}
+
+/* .project-detail .image-gallery img:hover {
+  transform: scale(1.03);
+} */
+
+.project-detail a {
+  color: rgb(121, 68, 255);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.project-detail a:hover {
+  text-decoration: underline;
+}
+
+.custom-section {
+  margin-top: 30px;
+  padding: 15px;
+  background-color: #fafafa;
+  border-left: 5px solid rgb(121, 68, 255);
+}
+
+.custom-section h3 {
+  margin-top: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: rgb(121, 68, 255);
+}
+
+.custom-section p {
+  font-size: 14px;
+  color: #444;
+}
+
+/* 반응형 */
+@media (max-width: 375px) {
+  .project-detail {
+    padding: 30px;
+  }
+
+  .project-detail .image-gallery {
+    justify-content: center;
+  }
+
+  .project-detail .image-gallery img {
+    max-width: 90%;
+    width: 90%;
+  }
+}

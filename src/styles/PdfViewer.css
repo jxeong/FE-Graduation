@@ -4,7 +4,7 @@
   flex-direction: column;
   justify-content: flex-start;  /* 텍스트와 iframe을 세로로 상단에 배치 */
   align-items: center;  /* 가운데 정렬 */
-  padding: 20px;
+  padding: 30px;
   height: 100vh;  /* 전체 화면 높이 */
   background-color: #ffffff;
   position: relative;
@@ -13,13 +13,14 @@
 
 .pdf-texts {
   text-align: left;  /* 텍스트를 좌측 정렬 */
-  width: 90%;  /* 전체 너비로 확장 */
+  width: 100%;
 }
 
 .pdf-viewer-container h1 {
   color: rgb(121, 68, 255);
   font-size: 23px;
-  margin-bottom: 0;
+  margin: 20px 0px;
+  font-weight: 600;
 }
 
 .pdf-viewer-container h2 {
@@ -39,7 +40,7 @@
 
 .pdf-object {
   width: 100%;   /* 화면 크기에 맞춰서 가로 크기 설정 */
-  max-width: 90%;  /* 최대 90% 너비로 제한 */
+  max-width: 100%;  /* 최대 90% 너비로 제한 */
   height: 80vh;   /* 최대 80% 높이로 제한 */
   border: none;   /* 테두리 제거 */
 }
@@ -52,4 +53,35 @@
   width: 100%;
   padding: 0 20px;
   transform: translateY(-50%);
+}
+
+/* 모바일 화면용 스타일 (375px 이하) */
+@media (max-width: 375px) {
+  .pdf-viewer-container {
+    padding: 10px;
+  }
+
+  .pdf-texts {
+    width: 100%;
+  }
+
+  .pdf-viewer-container h1 {
+    font-size: 18px;
+    line-height: 1.4;
+  }
+
+  .pdf-viewer-container h2 {
+    font-size: 16px;
+  }
+
+  .pdf-viewer-container p {
+    font-size: 11px;
+    line-height: 1.7;
+  }
+
+  .pdf-object {
+    width: 100%;
+    height: 50vh;
+    max-width: 100%;
+  }
 }

@@ -1,16 +1,17 @@
-/* src/styles/Overview.css */
-.overview-container {
+/* src/styles/Thanksto.css */
+.thanksto-content {
+    padding: 30px;
     font-family: 'Pretendard', sans-serif;
     display: flex;
     justify-content: left;
   }
   
-  .overview-text {
+  .thanksto-text {
     max-width: 700px;
     color: #222;
   }
   
-  .overview-text h1 {
+  .thanksto-text h1 {
     color: rgb(121, 68, 255);
     font-size: 23px;
     font-weight: 600;
@@ -18,52 +19,28 @@
     margin-bottom: 20px;
   }
   
-  .overview-text h2 {
+  .thanksto-text h2 {
     color: rgb(121, 68, 255);
     font-size: 20px;
     font-weight: 500;
     margin-bottom: 20px;
   }
   
-  .overview-text h3 {
+  .thanksto-text h3 {
     color: rgb(121, 68, 255);
     font-size: 18px;
     font-weight: 500;
     margin: 4px 0;
   }
   
-  .overview-text .location {
+  .thanksto-text .location {
     margin-bottom: 30px;
   }
   
-  .overview-text p {
+  .thanksto-text p {
     color: #333;
     font-size: 13px;
     font-weight: 500;
     line-height: 1.9;
     margin-bottom: 40px;
   }
-  
-  /* 디데이 */
-  .countdown {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 10px;
-}
-
-.time-unit {
-  text-align: center;
-  padding: 20px;
-  margin-bottom: 40px;
-}
-
-.time-unit span {
-  font-size: 1.5em;
-  font-weight: 200;
-}
-
-.time-unit p {
-  font-size: 13px;
-  margin-top: 5px;
-  margin-bottom: 0;
-}

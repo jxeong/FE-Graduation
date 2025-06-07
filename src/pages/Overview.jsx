@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import '../styles/Overview.css';
 
 const Overview = () => {
-  const targetDate = new Date('2025-09-07T14:00:00'); // 목표 날짜 설정 (2023년 9월 7일 14:00)
-  
+  const targetDate = new Date('2025-09-07T14:00:00'); // 목표 날짜
+
   // 상태 변수 설정
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
@@ -31,7 +31,7 @@ const Overview = () => {
     }, 1000); // 1초마다 업데이트
 
     return () => clearInterval(timer); // 컴포넌트 언마운트 시 타이머 정리
-  }, []);
+  });
 
   return (
     <section id="overview" className="overview-container">
@@ -74,10 +74,11 @@ const Overview = () => {
           </div>
         </div>
 
-        <h1>예시 제목</h1>
-        <p>
-          ---
-        </p>
+        <h1>오시는 길</h1>
+        <p>수정해야 한다 수정</p>
+        <a href="https://naver.me/FQyQBwba">네이버지도</a>
+        <br/>
+        <a href="https://place.map.kakao.com/16067281">카카오맵</a>
       </div>
     </section>
   );

@@ -14,11 +14,8 @@ body {
   scroll-behavior: smooth;
 }
 
-
-
 section {
-  margin: 20px;
-  margin-bottom: 40px;
+  padding: 30px;
 }
 
 h1, h2 {
@@ -36,7 +33,7 @@ p {
   text-decoration: underline;
 }
 
-/* 모바일 화면용 스타일 (375px 이하) */
+/* 모바일 화면용 스타일 */
 @media (max-width: 375px) {
   header {
     font-size: 18px;
