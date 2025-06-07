@@ -2,77 +2,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/ExhibitionContent.css';
+import { projectDetails } from '../data/projectDetails.js';
 
-// 프로젝트 정보 (추후 수정 필요)
-const projects = [
-  {
-    id: 1,
-    image: '/images/sample2.jpg',
-    subtitle: '환경을 생각하는 IoT',
-    title: '졸업전시 무사히 할 수 있을까',
-    team: '팀명',
-    keywords: ['사물인터넷', '웹 기반', '환경'],
-  },
-  {
-    id: 2,
-    image: '/images/sample.jpg',
-    subtitle: '모두를 위한 스마트미러',
-    title: 'Inside Mirror',
-    team: '팀명',
-    keywords: ['인공지능', 'IoT', '스마트홈'],
-  },
-  {
-    id: 3,
-    image: '/images/sample.jpg',
-    subtitle: '부제는 있을 수도, 없을 수도 있다',
-    title: '카카오톡',
-    team: '팀명',
-    keywords: ['메신저', '폰트', '편의'],
-  },
-  {
-    id: 4,
-    image: '/images/sample.jpg',
-    title: '쿠팡플레이',
-    team: '팀명',
-    keywords: ['OTT', '재미', '여가'],
-  },
-  {
-    id: 5,
-    image: '/images/sample.jpg',
-    title: '졸업하기 싫다',
-    team: '팀명',
-    keywords: ['Contents', '폰트', '감성'],
-  },
-  {
-    id: 6,
-    image: '/images/sample.jpg',
-    title: '졸업하기 싫다',
-    team: '팀명',
-    keywords: ['Contents', '폰트', '감성'],
-  },
-  {
-    id: 7,
-    image: '/images/sample.jpg',
-    title: '졸업하기 싫다',
-    team: '팀명',
-    keywords: ['Contents', '폰트', '감성'],
-  },
-  {
-    id: 8,
-    image: '/images/sample.jpg',
-    title: '졸업하기 싫다',
-    team: '팀명',
-    keywords: ['Contents', '폰트', '감성'],
-  },
-  {
-    id: 9,
-    image: '/images/sample.jpg',
-    title: '졸업하기 싫다',
-    team: '팀명',
-    keywords: ['Contents', '폰트', '감성'],
-  }
-  // ... 나머지 7개 추가
-];
+export const projectList = Object.values(projectDetails).map(p => ({
+  id: p.id,
+  image: p.images[0],
+  subtitle: p.subtitle,
+  title: p.title,
+  team: p.team,
+  keywords: p.keywords,
+}));
 
 const ExhibitionContent = () => (
   <section className="exhibition-content">
@@ -83,7 +22,7 @@ const ExhibitionContent = () => (
     </div>
 
     <div className="project-grid">
-      {projects.map((project) => (
+      {projectList.map((project) => (
         <Link
           to={`/project/${project.id}`}
           className="project-card"
