@@ -13,15 +13,8 @@ const PdfViewer = () => {
         <p> * 로드 오류 발생 시 새로고침 권장 <br/> * 총 __ 페이지 </p>
       </div>
       
-      {/* iframe을 사용하여 PDF 렌더링 */}
-      <iframe
-        src={pdfUrl + '#toolbar=1'}  // PDF 경로와 툴바 숨기기, 확대/축소 설정
-        className="pdf-object"
-        title="PDF Viewer"
-        width="100%"  // 원하는 너비
-        height="80vh"  // 원하는 높이 (화면 크기에 맞게 설정)
-        style={{ border: 'none' }}
-      />
+      {/* PDF preview로 해줘야 오류 안남 */}
+      <embed src="https://drive.google.com/file/d/1xAo4XVjnTRrNSqrVA0RI-YKXRq_Akp7I/preview?usp=sharing" frameborder="0" width="100%" height="100%"></embed>
     </Box>
   );
 };
