@@ -79,7 +79,7 @@ const Overview = () => {
   const mapRef = useRef(null);
   useEffect(() => {
     const script = document.createElement('script');
-    script.src = 'https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=bgyihse1l4';
+    script.src = 'https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=0';
     script.async = true;
     script.onload = () => {
       const position = new window.naver.maps.LatLng(37.6524416, 127.0158245); // 덕성여대 도서관 좌표
