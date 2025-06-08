@@ -58,23 +58,38 @@ const Overview = () => {
 
 
   const renderAnimatedH1 = (text, index) => {
-  return (
-    <h1
-      key={index}
-      ref={(el) => {
-        if (el) h1Refs.current[index] = el;
-      }}
-      className={`fade-in-section ${visibleIndexes.includes(index) ? 'visible' : ''}`}
-    >
-      {text.split('\n').map((line, i) => (
-        <React.Fragment key={i}>
-          {line}
-          <br />
-        </React.Fragment>
-      ))}
-    </h1>
-  );
-};
+    return (
+      <h1
+        key={index}
+        ref={(el) => {
+          if (el) h1Refs.current[index] = el;
+        }}
+        className={`fade-in-section ${visibleIndexes.includes(index) ? 'visible' : ''}`}
+      >
+        {text.split('\n').map((line, i) => (
+          <React.Fragment key={i}>
+            {line}
+            <br />
+          </React.Fragment>
+        ))}
+      </h1>
+    );
+  };
+
+  const mapRef = useRef(null);
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = `https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${process.env.REACT_APP_NAVER_MAP_CLIENT_ID}`;
+    script.async = true;
+    script.onload = () => {
+      const mapOptions = {
+        center: new window.naver.maps.LatLng(37.6508079, 127.0164573), // 덕성여대 도서관 좌표
+        zoom: 16,
+      };
+      new window.naver.maps.Map(mapRef.current, mapOptions);
+    };
+    document.head.appendChild(script);
+  }, []);
 
   return (
     <section id="overview" className="overview-container">
@@ -106,7 +121,17 @@ const Overview = () => {
         </div>
 
         {renderAnimatedH1('오시는 길', 3)}
-        <p>수정해야 한다 수정</p>
+        <section className="map-section" id="map-section">
+          <div
+            ref={mapRef}
+            style={{
+              width: '80%',
+              height: '300px',
+              margin: 'auto',
+              borderRadius: '8px',
+            }}
+          />
+        </section>
         <a href="https://naver.me/FQyQBwba">네이버지도</a><br />
         <a href="https://place.map.kakao.com/16067281">카카오맵</a>
       </div>
