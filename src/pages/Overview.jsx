@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useMemo } from 'react';
 import '../styles/Overview.css';
 
 const Overview = () => {
-  const targetDate = new Date('2025-09-07T14:00:00');
+  const targetDate = useMemo(() => new Date('2025-09-07T14:00:00'), []);
 
   const [timeLeft, setTimeLeft] = useState({
     days: 0, hours: 0, minutes: 0, seconds: 0,
@@ -15,6 +15,7 @@ const Overview = () => {
     const timer = setInterval(() => {
       const now = new Date();
       const diff = targetDate - now;
+
       if (diff <= 0) clearInterval(timer);
       else {
         setTimeLeft({
@@ -26,14 +27,15 @@ const Overview = () => {
       }
     }, 1000);
     return () => clearInterval(timer);
-  }, []);
+  }, [targetDate]);
 
   useEffect(() => {
+    const currentRefs = h1Refs.current;
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const index = h1Refs.current.findIndex((ref) => ref === entry.target);
+            const index = currentRefs.findIndex((ref) => ref === entry.target);
             if (index !== -1) {
               setVisibleIndexes((prev) => [...new Set([...prev, index])]);
             }
@@ -43,12 +45,12 @@ const Overview = () => {
       { threshold: 0.1 }
     );
 
-    h1Refs.current.forEach((ref) => {
+    currentRefs.forEach((ref) => {
       if (ref) observer.observe(ref);
     });
 
     return () => {
-      h1Refs.current.forEach((ref) => {
+      currentRefs.forEach((ref) => {
         if (ref) observer.unobserve(ref);
       });
     };
@@ -74,35 +76,12 @@ const Overview = () => {
   );
 };
 
-
-
-  // D-day countdown
-  useEffect(() => {
-    const timer = setInterval(() => {
-      const now = new Date();
-      const diff = targetDate - now;
-
-      if (diff <= 0) {
-        clearInterval(timer);
-      } else {
-        setTimeLeft({
-          days: Math.floor(diff / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-          minutes: Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)),
-          seconds: Math.floor((diff % (1000 * 60)) / 1000),
-        });
-      }
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, []);
-
   return (
     <section id="overview" className="overview-container">
       <div className="overview-text">
         {renderAnimatedH1('DSWU SOFTWARE\nGRADUATION EXHIBITION', 0)}
-        <h2>덕성여자대학교 소프트웨어전공 <br /> 제 3회 졸업전시회 </h2>
-        <h3 className="location">도서관 오스카라운지<br />09.07 - 09.09</h3>
+        <h2>덕성여자대학교 소프트웨어전공 <br /> 제 3회 졸업전시: 공명(共鳴) </h2>
+        <h3 className="location">덕성여대 도서관 오스카라운지<br />09.07 - 09.09</h3>
         <p>
           서로 다른 주파수를 가진 이들이 한 공간에 모였습니다.
           그러나 같은 열정, 같은 방향성, 같은 목적이 우리를 공명하게 했습니다.

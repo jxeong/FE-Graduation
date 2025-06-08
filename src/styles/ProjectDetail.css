@@ -8,27 +8,54 @@
 
 .project-detail h1 {
   color: rgb(121, 68, 255);
-  font-size: 23px;
+  font-size: 20px;
   font-weight: 600;
-  margin: 20px 0;
+  margin: 15px 0;
   margin-top: 10px;
 }
 
 .project-detail h2 {
-  font-size: 18px;
+  font-size: 16px;
   color: #666;
   font-weight: 400;
   margin-bottom: 10px;
 }
 
-.project-detail .team,
-.project-detail .keywords,
-.project-detail .technologies,
-.project-detail .members {
-  font-size: 13px;
-  font-weight: 500;
-  margin: 5px 0;
+.keyword-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 15px 0 25px;
 }
+
+.keyword-label {
+  font-size: 14px;
+  font-weight: 400;
+  color: #444;
+  white-space: nowrap;
+}
+
+.keyword-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.keyword-tag {
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: 9px;
+  background-color: #e7c2fb;
+  color: #333;
+  white-space: nowrap;
+}
+
+.keyword-tag:nth-child(2n) {
+  background-color: #c8f2ba;
+}
+
 
 .project-detail .description {
   font-size: 15px;
@@ -40,6 +67,7 @@
 .project-detail .image-gallery {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 10px;
   margin: 20px 0;
 }
@@ -50,7 +78,7 @@
   aspect-ratio: 4 / 3;
   object-fit: cover;
   border-radius: 4px;
-  background-color: #f0f0f0;
+  background-color: #ffffff;
   transition: transform 0.3s ease;
 }
 
@@ -64,38 +92,98 @@
   text-decoration: underline;
 }
 
-.custom-section {
-  margin-top: 30px;
-  padding: 15px;
-  background-color: #fafafa;
-  border-left: 5px solid rgb(121, 68, 255);
-}
-
-.custom-section h3 {
-  margin-top: 0;
-  font-size: 16px;
-  font-weight: 600;
-  color: rgb(121, 68, 255);
-}
-
-.custom-section p {
+.member-list {
+  padding-left: 0;
+  list-style: none;
   font-size: 14px;
-  color: #444;
+  line-height: 1.8;
+  color: #333;
+}
+
+.member-list li{
+  margin-bottom: 20px;
+}
+
+.member-item {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  text-align: justify;
+}
+
+.member-name {
+  font-weight: 600;
+  margin-right: 4px;
+  white-space: nowrap;
+}
+
+.member-role {
+  font-weight: 400;
+  margin-right: 4px;
+  white-space: nowrap;
+  color: #575757;
+}
+
+.separator {
+  margin-right: 4px;
+  white-space: nowrap;
+}
+
+.member-message {
+  flex: 1;
+  text-align: justify;
+  line-height: 1.8;
+  font-size: 13px;
+}
+
+
+.toggle-header {
+  font-weight: 400;
+  display: block;
+  cursor: pointer;
+  margin: 20px 0 5px;
+  color: rgb(68, 68, 68);
+}
+
+.toggle-section p {
+  font-size: 14px;
+  margin: 10px 0px;
+}
+
+.toggle-section a {
+  font-size: 14px;
+  margin: 10px 0px;
+}
+
+.toggle-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+  opacity: 0;
+}
+
+.toggle-content.open {
+  max-height: 500px;
+  opacity: 1;
+}
+
+.toggle-header.active {
+  color: rgb(121, 68, 255);
 }
 
 .back-button {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   font-size: 14px;
   background: none;
   border: none;
-  color: rgb(121, 68, 255);
+  color: #444;
   cursor: pointer;
   padding: 0;
 }
 
 .back-button:hover {
   text-decoration: None;
-  color: rgb(0, 0, 0);
+  color: rgb(121, 68, 255);
 }
 
 .navigation-footer {

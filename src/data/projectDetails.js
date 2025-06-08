@@ -10,7 +10,18 @@ export const projectDetails = {
     images: ['/images/sample.jpg', '/images/sample2.jpg'],
     description: '이 프로젝트는 환경을 고려한 IoT 기술로 스마트한 배출을 돕는 시스템입니다.',
     technologies: ['React', 'Node.js', 'Arduino'],
-    members: ['김덕성', '이공명'],
+    members: [
+      { name: '최덕성',
+        role: '프론트엔드 개발',
+        message: '많은 것을 배우고 즐거운 시간이었습니다!'
+      },
+      { name: '김민지',
+        role: '하드웨어 개발',
+        message: '함께할 수 있어 영광이었습니다.' },
+      { name: '김홍중',
+        role: '팀장, 딥러닝 모델 개발',
+        message: '4년 동안 달려온 여정의 마지막을 이렇게 전시라는 형태로 마무리하게 되어 감회가 새롭습니다. 프로젝트를 기획하고 구현하는 과정에서 수없이 좌절하고 고민했지만, 그 속에서 진짜 협업과 배움의 의미를 느낄 수 있었습니다. 전시 당일 많은 분들이 저희 작품을 관심 있게 지켜봐 주셨고, 그 순간만큼은 모든 노력이 보상받는 기분이었습니다. 함께 해준 팀원들, 끝까지 지도해주신 교수님들께 진심으로 감사드리며, 앞으로도 이 경험을 발판 삼아 더 나은 개발자가 되겠습니다.' },
+    ],
     extra: {
       youtube: 'https://youtu.be/example1',
       github: 'https://github.com/team/project1',
@@ -27,7 +38,18 @@ export const projectDetails = {
     images: ['/images/sample2.jpg'],
     description: '거울 기반 스마트 홈 시스템으로 사용자의 표정과 눈 움직임을 인식합니다.',
     technologies: ['YOLO', 'Jetson Nano', 'WebSocket'],
-    members: ['김스마트', '이거울'],
+    members: [
+  {
+    name: "김소정",
+    role: "프론트엔드 (React)",
+    message: "졸업 전시에 참여하게 되어 너무 뜻깊었습니다. 팀원들과의 협업 과정에서 많은 것을 배웠고, 완성된 결과물을 보며 뿌듯함을 느꼈습니다. 모두 고생 많았어요!"
+  },
+  {
+    name: "김하정",
+    role: "백엔드 (Spring Boot)",
+    message: "처음 해보는 백엔드 프로젝트라 어려움도 많았지만, 그만큼 보람도 컸습니다. 좋은 팀원들을 만나 즐겁게 작업할 수 있었습니다."
+  }
+]
   },
 
   3: {
@@ -36,7 +58,7 @@ export const projectDetails = {
     subtitle: '운동 보조 앱',
     team: '팀 C',
     keywords: ['운동', '건강', '모션'],
-    images: ['/images/sample.jpg'],
+    images: ['/images/sample3.png'],
     description: '사용자의 운동 자세를 인식하여 피드백을 제공하는 앱입니다.',
     technologies: ['PoseNet', 'React Native'],
     members: ['정헬스', '박짐'],
@@ -48,7 +70,7 @@ export const projectDetails = {
     subtitle: '마음 읽는 AI',
     team: '팀 D',
     keywords: ['AI', '감정분석', '음악'],
-    images: ['/images/sample2.jpg'],
+    images: ['/images/sample3.png'],
     description: '표정 인식을 통해 사용자에게 맞춤 음악을 추천합니다.',
     technologies: ['TensorFlow', 'Keras', 'Express'],
     members: ['이음악', '최감정'],
@@ -96,7 +118,7 @@ export const projectDetails = {
     subtitle: '마음챙김, 앱으로 시작하다',
     team: '팀 H',
     keywords: ['명상', '음악', '심리'],
-    images: ['/images/sample2.jpg'],
+    images: ['/images/sample3.png'],
     description: '심호흡과 명상을 유도하는 디지털 힐링 콘텐츠 앱입니다.',
     technologies: ['HTML5 Audio', 'React'],
     members: ['장마음'],

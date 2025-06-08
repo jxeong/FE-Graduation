@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { projectDetails } from '../data/projectDetails';
 import '../styles/ProjectDetail.css';
@@ -9,22 +9,43 @@ const ProjectDetail = () => {
   const project = projectDetails[id];
   const ids = Object.keys(projectDetails).map(Number).sort((a, b) => a - b);
   const currentIndex = ids.indexOf(Number(id));
-
   const prevId = ids[currentIndex - 1];
   const nextId = ids[currentIndex + 1];
+
+  const [openSection, setOpenSection] = useState('description');
+  const contentRefs = useRef({});
+
+  const toggleSection = (section) => {
+    setOpenSection((prev) => (prev === section ? null : section));
+  };
+
+  useEffect(() => {
+    Object.keys(contentRefs.current).forEach((key) => {
+      const el = contentRefs.current[key];
+      if (el) {
+        el.style.maxHeight = openSection === key ? `${el.scrollHeight}px` : '0px';
+      }
+    });
+  }, [openSection]);
 
   if (!project) return <p>해당 프로젝트를 찾을 수 없습니다.</p>;
 
   return (
     <div className="project-detail">
-      {/* 1. 상단 돌아가기 버튼 */}
-      <button className="back-button" onClick={() => navigate(-1)}>← 이전 페이지</button>
+      <button className="back-button" onClick={() => navigate(-1)}>⇠ 이전 페이지</button>
 
-      {/* 본문 */}
       {project.subtitle && <h2>{project.subtitle}</h2>}
       <h1>{project.title}</h1>
       <p><strong>|</strong> {project.team}</p>
-      <p><strong>KEYWORDS </strong> {project.keywords?.join(', ')}</p>
+
+      <div className="keyword-row">
+        <strong className="keyword-label">KEYWORDS</strong>
+        <div className="keyword-tags">
+          {project.keywords?.map((keyword, idx) => (
+            <span key={idx} className="keyword-tag">{keyword}</span>
+          ))}
+        </div>
+      </div>
 
       {project.images?.length > 0 && (
         <div className="image-gallery">
@@ -34,51 +55,129 @@ const ProjectDetail = () => {
         </div>
       )}
 
-      {project.description && <p className="description">{project.description}</p>}
+      <div className="toggle-section">
+        {project.description && (
+          <>
+            <strong
+              onClick={() => toggleSection('description')}
+              className={`toggle-header ${openSection === 'description' ? 'active' : ''}`}
+            >
+              ▶︎ 기획 의도
+            </strong>
+            <div
+              ref={(el) => (contentRefs.current['description'] = el)}
+              className={`toggle-content ${openSection === 'description' ? 'open' : ''}`}
+            >
+              <p>{project.description}</p>
+            </div>
+          </>
+        )}
 
-      {project.technologies && (
-        <p><strong>사용 기술:</strong> {project.technologies.join(', ')}</p>
-      )}
+        {project.technologies && (
+          <>
+            <strong
+              onClick={() => toggleSection('stack')}
+              className={`toggle-header ${openSection === 'stack' ? 'active' : ''}`}
+            >
+              ▶︎ Stack
+            </strong>
+            <div
+              ref={(el) => (contentRefs.current['stack'] = el)}
+              className={`toggle-content ${openSection === 'stack' ? 'open' : ''}`}
+            >
+              <p>{project.technologies.join(', ')}</p>
+            </div>
+          </>
+        )}
 
-      {project.members && (
-        <p><strong>팀원:</strong> {project.members.join(', ')}</p>
-      )}
+        {project.extra?.youtube && (
+          <>
+            <strong
+              onClick={() => toggleSection('youtube')}
+              className={`toggle-header ${openSection === 'youtube' ? 'active' : ''}`}
+            >
+              ▶︎ 시연 영상
+            </strong>
+            <div
+              ref={(el) => (contentRefs.current['youtube'] = el)}
+              className={`toggle-content ${openSection === 'youtube' ? 'open' : ''}`}
+            >
+              <a href={project.extra.youtube} target="_blank" rel="noopener noreferrer">YouTube</a>
+            </div>
+          </>
+        )}
 
-      {project.extra?.youtube && (
-        <p>
-          <strong>시연 영상:</strong>{' '}
-          <a href={project.extra.youtube} target="_blank" rel="noopener noreferrer">
-            YouTube
-          </a>
-        </p>
-      )}
+        {project.extra?.github && (
+          <>
+            <strong
+              onClick={() => toggleSection('github')}
+              className={`toggle-header ${openSection === 'github' ? 'active' : ''}`}
+            >
+              ▶︎ GitHub
+            </strong>
+            <div
+              ref={(el) => (contentRefs.current['github'] = el)}
+              className={`toggle-content ${openSection === 'github' ? 'open' : ''}`}
+            >
+              <a href={project.extra.github} target="_blank" rel="noopener noreferrer">
+                {project.extra.github}
+              </a>
+            </div>
+          </>
+        )}
 
-      {project.extra?.github && (
-        <p>
-          <strong>GitHub:</strong>{' '}
-          <a href={project.extra.github} target="_blank" rel="noopener noreferrer">
-            {project.extra.github}
-          </a>
-        </p>
-      )}
+        {project.members && (
+          <>
+            <strong
+              onClick={() => toggleSection('members')}
+              className={`toggle-header ${openSection === 'members' ? 'active' : ''}`}
+            >
+              ▶︎ Members
+            </strong>
+            <div
+              ref={(el) => (contentRefs.current['members'] = el)}
+              className={`toggle-content ${openSection === 'members' ? 'open' : ''}`}
+            >
+              <ul className="member-list">
+                {project.members.map((member, idx) => (
+                  <li key={idx}>
+                    <p><strong className="member-name">✶ {member.name}</strong> | <span className="member-role">{member.role}</span></p>
+                    <p className="member-message">{member.message}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </>
+        )}
 
-      {project.extra?.customSection && (
-        <div className="custom-section">
-          <h3>특별 소개</h3>
-          <p>{project.extra.customSection}</p>
-        </div>
-      )}
 
-      {/* 2. 하단 이전/다음 글 이동 */}
+        {project.extra?.customSection && (
+          <>
+            <strong
+              onClick={() => toggleSection('custom')}
+              className={`toggle-header ${openSection === 'custom' ? 'active' : ''}`}
+            >
+              ▶︎ SPECIAL QUESTIONS!
+            </strong>
+            <div
+              ref={(el) => (contentRefs.current['custom'] = el)}
+              className={`toggle-content ${openSection === 'custom' ? 'open' : ''}`}
+            >
+              <p>{project.extra.customSection}</p>
+            </div>
+          </>
+        )}
+      </div>
+
       <div className="navigation-footer">
         {prevId && (
           <button onClick={() => navigate(`/project/${prevId}`)}>
-            ← {projectDetails[prevId].title}
+            ⇠ {projectDetails[prevId].title}
           </button>
         )}
         {nextId && (
           <button onClick={() => navigate(`/project/${nextId}`)}>
-            {projectDetails[nextId].title} →
+            {projectDetails[nextId].title} ⇢
           </button>
         )}
       </div>

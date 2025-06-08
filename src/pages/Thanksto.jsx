@@ -1,14 +1,135 @@
-// src/pages/Thanksto.jsx
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { professors } from '../data/congratulatoryMessages';
+import { developerNames } from '../data/developers';
 import '../styles/Thanksto.css';
+import duksungLogo from '../assets/duksung.png'; // 이미지 import
 
-const Thanksto = () => (
-    <section className="thanksto-content">
-        <div className="thanksto-text">
-            <h1>CREDITS</h1>
-            <p>졸업준비위원회, 전체 개발자, 지도교수, 후원사 명단</p>
-        </div>
-    </section>
-);
+const sponsors = [
+    { name: '덕성여대', image: duksungLogo },
+    // 나중에 추가 가능
+    // { name: '기타기업', image: otherLogo },
+];
+
+const chunkArray = (arr, size) => {
+    const chunks = [];
+    for (let i = 0; i < arr.length; i += size) {
+        chunks.push(arr.slice(i, i + size));
+    }
+    return chunks;
+};
+
+const developerChunks = chunkArray(developerNames, 6);
+
+
+const Thanksto = () => {
+    const [activeProfessor, setActiveProfessor] = useState(null);
+    const elementsRef = useRef([]);
+    const [visibleIndexes, setVisibleIndexes] = useState([]);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    const index = elementsRef.current.findIndex((ref) => ref === entry.target);
+                    if (entry.isIntersecting && index !== -1) {
+                        setVisibleIndexes((prev) => [...new Set([...prev, index])]);
+                    }
+                });
+            },
+            { threshold: 0.1 }
+        );
+
+        const currentElements = elementsRef.current; // ✅ 로컬 복사
+        currentElements.forEach((el) => {
+            if (el) observer.observe(el);
+        });
+
+        return () => {
+            currentElements.forEach((el) => {
+                if (el) observer.unobserve(el);
+            });
+        };
+    }, []);
+
+    // ref + fade-in 적용 함수
+    const withFadeIn = (element, index) =>
+        React.cloneElement(element, {
+            ref: (el) => (elementsRef.current[index] = el),
+            className: `fade-in-section ${visibleIndexes.includes(index) ? 'visible' : ''}`,
+        });
+
+    const handleClick = (name) => {
+        setActiveProfessor((prev) => (prev === name ? null : name));
+    };
+
+    const selectedProfessor = professors.find((p) => p.name === activeProfessor);
+
+    return (
+        <section className="thanksto-content">
+            {withFadeIn(<h1>덕성여자대학교 소프트웨어전공 <br /> 제 3회 졸업전시: 공명(共鳴)</h1>, 0)}            <img src="/images/exampleLogo.png" alt="logo" className="floating-logo" />
+
+            <div className="thanksto-text">
+                <div className="credit-section">
+                    {withFadeIn(<h2>PROFESSORS</h2>, 1)}
+                    <h3>지도교수</h3>
+                    <p>✦ Click to check out Messages!</p>
+
+                    {/* 이름은 한 줄로 */}
+                    <div className="professor-list">
+                        {professors.map((prof) => (
+                            <span
+                                key={prof.name}
+                                className="clickable-name"
+                                onClick={() => handleClick(prof.name)}
+                            >
+                                {prof.name}
+                            </span>
+                        ))}
+                    </div>
+
+                    {/* 메시지는 한 번만, 리스트 아래에 */}
+                    {activeProfessor && (
+                        <div className="professor-message below-list">
+                            <img src={selectedProfessor.image} alt={selectedProfessor.name} />
+                            <p>{selectedProfessor.message}</p>
+                        </div>
+                    )}
+                </div>
+
+
+                <div className="credit-section">
+                    {withFadeIn(<h2>DEVELOPERS</h2>, 2)}
+                    <h3>참여 학생</h3>
+                    <div className="developer-name">
+                        {developerChunks.map((group, index) => (
+                            <p key={index}>{group.join(' ')}</p>
+                        ))}
+                    </div>
+                </div>
+
+                <div className="credit-section">
+                    {withFadeIn(<h2>COMMITTEE</h2>, 3)}
+                    <h3>졸업전시준비위원회</h3>
+                    <p>전다혜 김소정 김하정</p>
+                </div>
+
+                <div className="credit-section">
+                    {withFadeIn(<h2>SPONSORS</h2>, 4)}
+                    <h3>후원사</h3>
+                    <div className="sponsor-logos">
+                        {sponsors.map((sponsor) => (
+                            <img
+                                key={sponsor.name}
+                                src={sponsor.image}
+                                alt={sponsor.name}
+                                className="sponsor-logo"
+                            />
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+};
 
 export default Thanksto;
