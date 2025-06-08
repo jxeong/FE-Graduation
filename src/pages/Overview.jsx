@@ -79,17 +79,38 @@ const Overview = () => {
   const mapRef = useRef(null);
   useEffect(() => {
     const script = document.createElement('script');
-    script.src = `https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=dH5rdB5LpW8EANSOpRY6QevztHBRll64wt5RswEz`;
+    script.src = 'https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=bgyihse1l4';
     script.async = true;
     script.onload = () => {
+      const position = new window.naver.maps.LatLng(37.6524416, 127.0158245); // 덕성여대 도서관 좌표
+
       const mapOptions = {
-        center: new window.naver.maps.LatLng(37.6508079, 127.0164573), // 덕성여대 도서관 좌표
+        center: position,
         zoom: 16,
       };
-      new window.naver.maps.Map(mapRef.current, mapOptions);
+
+      const map = new window.naver.maps.Map(mapRef.current, mapOptions);
+
+      // 마커 추가
+      const marker = new window.naver.maps.Marker({
+        position,
+        map,
+        title: '덕성여대 도서관 오스카라운지',
+      });
+
+      // InfoWindow (말풍선 설명창) 추가
+      const infoWindow = new window.naver.maps.InfoWindow({
+        content: `<div style="padding:8px;">덕성여대 도서관 오스카라운지</div>`,
+      });
+
+      // 마커 클릭 시 InfoWindow 열기
+      window.naver.maps.Event.addListener(marker, 'click', function () {
+        infoWindow.open(map, marker);
+      });
     };
     document.head.appendChild(script);
   }, []);
+
 
   return (
     <section id="overview" className="overview-container">
@@ -127,13 +148,16 @@ const Overview = () => {
             style={{
               width: '80%',
               height: '300px',
-              margin: 'auto',
+              margin: '0px',
+              padding: '0px',
               borderRadius: '8px',
             }}
           />
         </section>
-        <a href="https://naver.me/FQyQBwba">네이버지도</a><br />
-        <a href="https://place.map.kakao.com/16067281">카카오맵</a>
+        <div className='map-menus'>
+          <a href="https://naver.me/FQyQBwba" className='navermap'>네이버지도</a><br />
+          <a href="https://place.map.kakao.com/16067281" className='kakaomap'>카카오맵</a>
+        </div>
       </div>
     </section>
   );

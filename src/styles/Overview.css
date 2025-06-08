@@ -79,3 +79,31 @@
   transform: translateY(0);
 }
 
+.map-menus {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding-left: 30px;
+}
+
+.navermap {
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: 9px;
+  background-color: #7edd91;
+  color: #333;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.kakaomap {
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: 9px;
+  background-color: #f9e001;
+  color: #333;
+  white-space: nowrap;
+  text-decoration: none;
+}
