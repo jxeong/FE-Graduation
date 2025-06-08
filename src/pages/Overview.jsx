@@ -79,7 +79,7 @@ const Overview = () => {
   const mapRef = useRef(null);
   useEffect(() => {
     const script = document.createElement('script');
-    script.src = `https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${process.env.REACT_APP_NAVER_MAP_CLIENT_ID}`;
+    script.src = `https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=dH5rdB5LpW8EANSOpRY6QevztHBRll64wt5RswEz`;
     script.async = true;
     script.onload = () => {
       const mapOptions = {
