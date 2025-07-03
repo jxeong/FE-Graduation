@@ -76,7 +76,7 @@ export const projectDetails = {
   2: {
     id: 2,
     title: 'ElderEye',
-    subtitle: '넘어짐 감지와 실시간 스트리밍이 가능한 홈 모니터링 앱 시스템',
+    subtitle: '넘어짐 감지와 실시간 스트리밍이 가능한 홈 모니터링 앱',
     team: 'Cerberus',
     advisor: '이재호 교수님',
     keywords: ['IoT', 'Android', 'Deep Learning', 'MSA', 'WebRTC SFU'],

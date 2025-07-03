@@ -41,7 +41,7 @@ const ExhibitionContent = () => (
               <h3 className="title with-margin">{project.title}</h3>
             )}
             <p className="team">| {project.team}</p>
-            <p className="keywords">{project.keywords.join(' ∙ ')}</p>
+            {/* <p className="keywords">{project.keywords.join(' ∙ ')}</p> */}
           </div>
         </Link>
       ))}

@@ -130,7 +130,7 @@
   color: #433D8B;
 }
 
-.member-list li{
+.member-list li {
   margin-bottom: 20px;
 }
 
@@ -147,7 +147,7 @@
   white-space: nowrap;
 }
 
-.member-list .member-name{
+.member-list .member-name {
   color: #17153B;
 }
 
@@ -279,6 +279,7 @@
 /* 반응형 */
 
 @media (max-width: 500px) {
+
   .project-detail .nav-btn,
   .nav-btn {
     display: none !important;
@@ -305,9 +306,11 @@
 .progress-bar-wrapper {
   width: 100%;
   position: absolute;
-  bottom: 0px; /* 이미지 아래 붙게 */
+  bottom: 0px;
+  /* 이미지 아래 붙게 */
   left: 0;
-  padding: 0 20px; /* 좌우 여백 */
+  padding: 0 20px;
+  /* 좌우 여백 */
   box-sizing: border-box;
   /* z-index: 5; */
 }
@@ -331,17 +334,6 @@
 
 .swipe-hint {
   display: none;
-  position: absolute;
-  top: 45%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgba(255,255,255,0.4);
-  color: #433D8B;
-  font-size: 17px;
-  padding: 10px 20px;
-  z-index: 15;
-  font-weight: 300;
-  pointer-events: none; /* 터치 방해 안 되게 */
 }
 
 /* 작은 화면 (예: 500px 이하)일 때만 표시 */
@@ -349,14 +341,29 @@
   .swipe-hint {
     display: block;
     animation: bounce 2s ease-in-out infinite;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.4);
+    color: #433D8B;
+    font-size: 14px;
+    padding: 10px 20px;
+    z-index: 8;
+    font-weight: 300;
+    pointer-events: none;
+    /* 터치 방해 안 되게 */
   }
 }
 
 @keyframes bounce {
-  0%, 100% { transform: translate(-50%, -50%) scale(1); }
-  50% { transform: translate(-50%, -50%) scale(1.15); }
-}
-.swipe-hint {
-  animation: bounce 2s ease-in-out infinite;
-}
 
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scale(1.15);
+  }
+}

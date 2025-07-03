@@ -9,7 +9,7 @@ header {
   background-color: #A6B1E1;
   color: black;
   position: relative;
-  z-index: 2;
+  z-index: 100;
 }
 
 .title {
