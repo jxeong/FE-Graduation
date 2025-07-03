@@ -10,6 +10,7 @@ body {
   font-family: 'Pretendard', sans-serif;
   font-weight: 300;
   background: #ffffff;
+  text-align: justify;
 }
 
 .app-container {

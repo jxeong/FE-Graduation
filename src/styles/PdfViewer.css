@@ -17,21 +17,21 @@
 }
 
 .pdf-viewer-container h1 {
-  color: rgb(121, 68, 255);
+  color: #433D8B;
   font-size: 23px;
   margin: 20px 0px;
   font-weight: 600;
 }
 
 .pdf-viewer-container h2 {
-    color: rgb(121, 68, 255);
+    color: #433D8B;
     font-size: 20px;
     font-weight: 500;
     margin-bottom: 0px;
 }
 
 .pdf-viewer-container p {
-    color: #333;
+    color: #6b71a0;
     font-size: 13px;
     font-weight: 500;
     line-height: 1.9;

@@ -72,7 +72,7 @@ const Thanksto = () => {
                 <div className="credit-section">
                     {withFadeIn(<h2>PROFESSORS</h2>, 1)}
                     <h3>지도교수</h3>
-                    <p>✦ Click to check out Messages!</p>
+                    <p className="credit-ment">✦ Click to check out Messages!</p>
 
                     {/* 이름은 한 줄로 */}
                     <div className="professor-list">

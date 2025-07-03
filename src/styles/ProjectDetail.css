@@ -7,18 +7,18 @@
 }
 
 .project-detail h1 {
-  color: rgb(121, 68, 255);
+  color: #433D8B;
   font-size: 20px;
   font-weight: 600;
   margin: 15px 0;
-  margin-top: 10px;
+  margin-top: 8px;
 }
 
 .project-detail h2 {
-  font-size: 16px;
-  color: #666;
+  font-size: 15px;
+  color: #6b71a0;
   font-weight: 400;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .keyword-row {
@@ -31,7 +31,7 @@
 
 .keyword-label {
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 300;
   color: #444;
   white-space: nowrap;
 }
@@ -47,13 +47,14 @@
   font-size: 12px;
   font-weight: 500;
   border-radius: 9px;
-  background-color: #e7c2fb;
-  color: #333;
+  background-color: #DCD6F7;
+  color: #424874;
   white-space: nowrap;
 }
 
 .keyword-tag:nth-child(2n) {
-  background-color: #c8f2ba;
+  background-color: #424874;
+  color: #ffffff;
 }
 
 
@@ -61,7 +62,7 @@
   font-size: 15px;
   line-height: 1.8;
   margin-bottom: 16px;
-  color: #333;
+  color: #6b71a0;
   text-align: justify;
 }
 
@@ -85,7 +86,7 @@
 }
 
 .project-detail a {
-  color: rgb(121, 68, 255);
+  color: #433D8B;
   text-decoration: none;
   font-weight: 500;
 }
@@ -99,7 +100,7 @@
   list-style: none;
   font-size: 14px;
   line-height: 1.8;
-  color: #333;
+  color: #433D8B;
 }
 
 .member-list li{
@@ -114,16 +115,20 @@
 }
 
 .member-name {
-  font-weight: 600;
+  font-weight: 500;
   margin-right: 4px;
   white-space: nowrap;
 }
 
+.member-list .member-name{
+  color: #17153B;
+}
+
 .member-role {
-  font-weight: 400;
+  font-weight: 300;
   margin-right: 4px;
   white-space: normal;
-  color: #8e8e8e;
+  color: #17153B;
 }
 
 .separator {
@@ -136,9 +141,10 @@
   text-align: justify;
   line-height: 1.8;
   font-size: 13px;
-  color: black;
+  color: #17153B;
   background-color: transparent;
   white-space: pre-line;
+  font-weight: 200;
 }
 
 
@@ -147,7 +153,7 @@
   display: block;
   cursor: pointer;
   margin: 20px 0 5px;
-  color: rgb(68, 68, 68);
+  color: #A6B1E1;
 }
 
 .toggle-section p {
@@ -173,7 +179,7 @@
 }
 
 .toggle-header.active {
-  color: rgb(121, 68, 255);
+  color: #433D8B;
 }
 
 .back-button {
@@ -188,7 +194,7 @@
 
 .back-button:hover {
   text-decoration: None;
-  color: rgb(121, 68, 255);
+  color: #A6B1E1;
 }
 
 .navigation-footer {
@@ -208,7 +214,7 @@
 }
 
 .navigation-footer button:hover {
-  color: rgb(121, 68, 255);
+  color: #A6B1E1;
   text-decoration: None;
 }
 
@@ -231,7 +237,7 @@
 .qa-block .question {
   font-weight: 300;
   margin-bottom: 5px;
-  color: #333;
+  color: #17153B;
   font-size: 15px;
   /* background-color: #d6d6d6; */
   padding: 10px 0px;
@@ -239,7 +245,7 @@
 
 .qa-block .answer {
   margin-left: 12px;
-  color: #555;
+  color: #6b71a0;
   font-size: 14px;
 }
 
