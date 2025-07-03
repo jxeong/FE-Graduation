@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState, useMemo } from 'react';
 import '../styles/Overview.css';
+import kakaoIcon from '../assets/footer_kakao.png';
+import instagramIcon from '../assets/instagram.png';
 
 const Overview = () => {
   const targetDate = useMemo(() => new Date('2025-09-07T14:00:00'), []);
@@ -56,6 +58,18 @@ const Overview = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (window.Kakao && !window.Kakao.isInitialized()) {
+      window.Kakao.init('5c38be5c3571ea58cc27577a8decd4cd');
+    }
+
+    window.Kakao.Link.createScrapButton({
+      container: '#kakao-share-btn',
+      requestUrl: window.location.href, // 현재 페이지 공유
+      templateId: 121315 // 필요 시 추가
+    });
+  }, []);
+
 
   const renderAnimatedH1 = (text, index) => {
     return (
@@ -76,40 +90,40 @@ const Overview = () => {
     );
   };
 
-  const mapRef = useRef(null);
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=0';
-    script.async = true;
-    script.onload = () => {
-      const position = new window.naver.maps.LatLng(37.6524416, 127.0158245); // 덕성여대 도서관 좌표
+  // const mapRef = useRef(null);
+  // useEffect(() => {
+  //   const script = document.createElement('script');
+  //   script.src = 'https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=0';
+  //   script.async = true;
+  //   script.onload = () => {
+  //     const position = new window.naver.maps.LatLng(37.6524416, 127.0158245); // 덕성여대 도서관 좌표
 
-      const mapOptions = {
-        center: position,
-        zoom: 16,
-      };
+  //     const mapOptions = {
+  //       center: position,
+  //       zoom: 16,
+  //     };
 
-      const map = new window.naver.maps.Map(mapRef.current, mapOptions);
+  //     const map = new window.naver.maps.Map(mapRef.current, mapOptions);
 
-      // 마커 추가
-      const marker = new window.naver.maps.Marker({
-        position,
-        map,
-        title: '덕성여대 도서관 오스카라운지',
-      });
+  //     // 마커 추가
+  //     const marker = new window.naver.maps.Marker({
+  //       position,
+  //       map,
+  //       title: '덕성여대 도서관 오스카라운지',
+  //     });
 
-      // InfoWindow (말풍선 설명창) 추가
-      const infoWindow = new window.naver.maps.InfoWindow({
-        content: `<div style="padding:8px;">덕성여대 도서관 오스카라운지</div>`,
-      });
+  //     // InfoWindow (말풍선 설명창) 추가
+  //     const infoWindow = new window.naver.maps.InfoWindow({
+  //       content: `<div style="padding:8px;">덕성여대 도서관 오스카라운지</div>`,
+  //     });
 
-      // 마커 클릭 시 InfoWindow 열기
-      window.naver.maps.Event.addListener(marker, 'click', function () {
-        infoWindow.open(map, marker);
-      });
-    };
-    document.head.appendChild(script);
-  }, []);
+  //     // 마커 클릭 시 InfoWindow 열기
+  //     window.naver.maps.Event.addListener(marker, 'click', function () {
+  //       infoWindow.open(map, marker);
+  //     });
+  //   };
+  //   document.head.appendChild(script);
+  // }, []);
 
 
   return (
@@ -142,7 +156,7 @@ const Overview = () => {
         </div>
 
         {renderAnimatedH1('오시는 길', 3)}
-        <section className="map-section" id="map-section">
+        {/* <section className="map-section" id="map-section">
           <div
             ref={mapRef}
             style={{
@@ -153,11 +167,43 @@ const Overview = () => {
               borderRadius: '8px',
             }}
           />
-        </section>
+        </section> */}
+        <p className="route">카페 말로에서 오른쪽으로 꺾으면 오스카라운지 입구.... (안내 설명 + 사진)</p>
         <div className='map-menus'>
-          <a href="https://naver.me/FQyQBwba" className='navermap'>네이버지도</a><br />
+          <a href="https://naver.me/xprtKrM9" className='navermap'>네이버지도</a><br />
           <a href="https://place.map.kakao.com/16067281" className='kakaomap'>카카오맵</a>
         </div>
+
+        {renderAnimatedH1('Exhibition Poster (가안)', 4)}
+        <div className="poster-wrapper">
+          <img
+            src="/images/poster.jpeg"
+            alt="전시 포스터"
+            className="poster-image"
+          />
+        </div>
+
+        {renderAnimatedH1('SNS', 5)}
+        <div className="sns-buttons">
+          <button id="kakao-share-btn">
+            <img src={kakaoIcon} alt="카카오톡 공유 아이콘" />
+            <span>카카오톡 초대장 공유</span>
+          </button>
+          <button
+            id="instagram-btn"
+            onClick={() =>
+              window.open(
+                'https://www.instagram.com/2025_software?igsh=MXRpZzh2MHNlbzBoaA%3D%3D&utm_source=qr',
+                '_blank'
+              )
+            }
+          >
+            <img src={instagramIcon} alt="인스타그램 아이콘" />
+            <span>인스타그램 바로가기</span>
+          </button>
+        </div>
+
+
       </div>
     </section>
   );

@@ -1,31 +1,15 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './Footer.css';
-import kakaoIcon from '../assets/footer_kakao.png';
 
 const Footer = () => {
-  useEffect(() => {
-    if (window.Kakao && !window.Kakao.isInitialized()) {
-      window.Kakao.init('5c38be5c3571ea58cc27577a8decd4cd');
-    }
-
-    window.Kakao.Link.createScrapButton({
-      container: '#kakao-share-btn',
-      requestUrl: window.location.href, // 현재 페이지 공유
-      templateId: 121315 // 필요 시 추가
-    });
-  }, []);
 
   return (
     <footer>
       <p>덕성여자대학교 소프트웨어전공</p>
       <p>제 3회 졸업작품전시회</p>
       
-      <p>Instagram: @인스타그램아이디</p>
+      <p>Instagram @2025_software</p>
       <p>Copyright ⓒ 2025 DSWU SOFTWARE All rights reserved.</p>
-      <button id="kakao-share-btn">
-        <img src={kakaoIcon} alt="카카오톡 공유 아이콘" />
-        <span>카카오톡 공유</span>
-      </button>
 
     </footer>
   );

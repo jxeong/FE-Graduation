@@ -1,38 +1,14 @@
 footer {
   text-align: left;
-  padding: 30px 20px; /* 세로여백 가로여백 */
-  background-color: rgb(29, 30, 29);
+  padding: 40px 30px; /* 세로여백 가로여백 */
+  background-color: #433D8B;
   width: 100%; /* 화면 너비에 맞게 */
   box-sizing: border-box;
 }
 
   footer p {
     color: #ffffff;
-    font-size: 11px;
-    line-height: 0.6;
-  }
-  
-  button {
-    all: unset;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    user-select: none;
-    text-align: center;
-  }
-  
-  button img {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    margin-top: 6px;
-    margin-bottom: 6px;
-    object-fit: cover;
-  }
-  
-  button span {
     font-size: 13px;
-    color: #dcdcdc;
-    line-height: 1.3;
+    line-height: 0.6;
   }
   

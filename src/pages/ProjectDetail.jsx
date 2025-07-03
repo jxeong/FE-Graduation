@@ -88,7 +88,7 @@ const ProjectDetail = () => {
         >
           {/* 안내 메시지 */}
           {!hasSwiped && (
-            <div className="swipe-hint">▸▸▸ Swipe Image ▸▸▸</div>
+            <div className="swipe-hint">▸▸▸ Swipe Image ▸▸</div>
           )}
 
           <div
@@ -158,7 +158,7 @@ const ProjectDetail = () => {
             >
               {typeof project.technologies === 'object' && !Array.isArray(project.technologies) ? (
                 Object.entries(project.technologies).map(([category, items]) => (
-                  <p key={category}><strong> {category} | </strong> {items.join(', ')}</p>
+                  <p key={category}>{category} | {items.join(', ')}</p>
                 ))
               ) : (
                 <p>{project.technologies.join(', ')}</p>
@@ -248,7 +248,7 @@ const ProjectDetail = () => {
             >
               {project.extra.customSection.map((qa, index) => (
                 <div key={index} className="qa-block">
-                  <p className="question"><strong>Q. {qa.question}</strong></p>
+                  <p className="question">Q. {qa.question}</p>
                   {qa.answer.split('\n').map((line, i) => (
                     <p key={i} className="answer">A. {line}</p>
                   ))}
