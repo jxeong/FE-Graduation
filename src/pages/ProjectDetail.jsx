@@ -14,6 +14,10 @@ const ProjectDetail = () => {
 
   const [openSection, setOpenSection] = useState('description');
   const contentRefs = useRef({});
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [touchStartX, setTouchStartX] = useState(null);
+
+  const [hasSwiped, setHasSwiped] = useState(false);
 
   const toggleSection = (section) => {
     setOpenSection((prev) => (prev === section ? null : section));
@@ -29,6 +33,30 @@ const ProjectDetail = () => {
   }, [openSection]);
 
   if (!project) return <p>해당 프로젝트를 찾을 수 없습니다.</p>;
+
+  const handlePrev = () => {
+    setCurrentImageIndex((prev) => (prev === 0 ? project.images.length - 1 : prev - 1));
+  };
+
+  const handleNext = () => {
+    setCurrentImageIndex((prev) => (prev === project.images.length - 1 ? 0 : prev + 1));
+  };
+
+  const handleTouchStart = (e) => {
+    setTouchStartX(e.touches[0].clientX);
+  };
+
+  const handleTouchMove = (e) => {
+    if (touchStartX === null) return;
+    const diffX = touchStartX - e.touches[0].clientX;
+    if (diffX > 50) {
+      handleNext();
+      setTouchStartX(null);
+    } else if (diffX < -50) {
+      handlePrev();
+      setTouchStartX(null);
+    }
+  };
 
   return (
     <div className="project-detail">
@@ -48,12 +76,53 @@ const ProjectDetail = () => {
       </div>
 
       {project.images?.length > 0 && (
-        <div className="image-gallery">
-          {project.images.map((img, index) => (
-            <img src={img} alt={`project-${project.id}-img-${index}`} key={index} />
-          ))}
+        <div
+          className="image-gallery"
+          onTouchStart={(e) => {
+            handleTouchStart(e);
+            if (!hasSwiped) setHasSwiped(true);
+          }}
+          onTouchMove={(e) => {
+            handleTouchMove(e);
+          }}
+        >
+          {/* 안내 메시지 */}
+          {!hasSwiped && (
+            <div className="swipe-hint">▸▸▸ Swipe Image ▸▸▸</div>
+          )}
+
+          <div
+            className="slide-container"
+            style={{
+              transform: `translateX(-${currentImageIndex * 100}%)`
+            }}
+          >
+            {project.images.map((img, index) => (
+              <img
+                key={index}
+                src={img}
+                alt={`project-${project.id}-img-${index}`}
+                className="slide-image"
+              />
+            ))}
+          </div>
+
+          <div className="progress-bar-wrapper">
+            <div className="progress-bar">
+              <div
+                className="progress-bar-inner"
+                style={{
+                  width: `${((currentImageIndex + 1) / project.images.length) * 100}%`
+                }}
+              />
+            </div>
+          </div>
+
+          <button className="nav-btn left" onClick={() => { handlePrev(); setHasSwiped(true); }}>◀</button>
+          <button className="nav-btn right" onClick={() => { handleNext(); setHasSwiped(true); }}>▶</button>
         </div>
       )}
+
 
       <div className="toggle-section">
         {project.description && (
@@ -207,7 +276,6 @@ const ProjectDetail = () => {
             </div>
           </>
         )}
-
       </div>
 
       <div className="navigation-footer">

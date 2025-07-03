@@ -57,7 +57,6 @@
   color: #ffffff;
 }
 
-
 .description p {
   font-size: 15px;
   line-height: 1.8;
@@ -66,23 +65,51 @@
   text-align: justify;
 }
 
-
-.project-detail .image-gallery {
+/* 이미지 슬라이드 */
+.image-gallery {
+  position: relative;
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
+  align-items: center;
   margin: 20px 0;
+  overflow: hidden;
+  width: 100%;
+  max-width: 800px;
 }
 
-.project-detail .image-gallery img {
+.slide-container {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  height: auto;
   width: 100%;
-  max-width: 280px;
-  aspect-ratio: 4 / 3;
+}
+
+.slide-image {
+  width: 100%;
+  flex: 0 0 100%;
   object-fit: cover;
-  border-radius: 4px;
-  background-color: #ffffff;
-  transition: transform 0.3s ease;
+}
+
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  font-size: 2rem;
+  padding: 0.4em 0.6em;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+  color: #A6B1E1;
+}
+
+.nav-btn.left {
+  left: 10px;
+}
+
+.nav-btn.right {
+  right: 10px;
 }
 
 .project-detail a {
@@ -249,8 +276,15 @@
   font-size: 14px;
 }
 
-
 /* 반응형 */
+
+@media (max-width: 500px) {
+  .project-detail .nav-btn,
+  .nav-btn {
+    display: none !important;
+  }
+}
+
 @media (max-width: 375px) {
   .project-detail {
     padding: 30px;
@@ -265,3 +299,64 @@
     width: 90%;
   }
 }
+
+/* 상태바 관련 */
+
+.progress-bar-wrapper {
+  width: 100%;
+  position: absolute;
+  bottom: 0px; /* 이미지 아래 붙게 */
+  left: 0;
+  padding: 0 20px; /* 좌우 여백 */
+  box-sizing: border-box;
+  /* z-index: 5; */
+}
+
+.progress-bar {
+  height: 6px;
+  background-color: #ddd;
+  margin-top: 10px;
+  width: 100%;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-bar-inner {
+  height: 100%;
+  background-color: #A6B1E1;
+  width: 0%;
+  transition: width 0.3s ease;
+  border-radius: 3px;
+}
+
+.swipe-hint {
+  display: none;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255,255,255,0.4);
+  color: #433D8B;
+  font-size: 17px;
+  padding: 10px 20px;
+  z-index: 15;
+  font-weight: 300;
+  pointer-events: none; /* 터치 방해 안 되게 */
+}
+
+/* 작은 화면 (예: 500px 이하)일 때만 표시 */
+@media (max-width: 500px) {
+  .swipe-hint {
+    display: block;
+    animation: bounce 2s ease-in-out infinite;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-50%, -50%) scale(1.15); }
+}
+.swipe-hint {
+  animation: bounce 2s ease-in-out infinite;
+}
+

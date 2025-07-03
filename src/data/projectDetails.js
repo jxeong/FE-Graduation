@@ -514,7 +514,7 @@ BCI(Brain-Computer Interface) 기술은 초기에는 전신 마비나 루게릭�
     team: '아이파이브 (I-Five)',
     advisor: '유제혁 교수님',
     keywords: ['AI', 'FashionTech', 'Computer Vision', 'Personalization'],
-    images: ['/images/sample.jpg'],
+    images: ['/images/team9/1.png', '/images/team9/2.png', '/images/team9/3.png', '/images/team9/4.png', '/images/team9/5.png', '/images/team9/6.png', '/images/team9/7.png', '/images/team9/8.png'],
     description: `현대 사회에서 옷은 개인의 정체성과 개성을 표현하는 중요한 수단이 되었습니다. 이에 따라 사람들은 자신의 스타일을 관리하고 표현하는 데 더 많은 관심을 기울이고 있습니다.
 
 그러나 현재의 코디 추천 서비스는 온라인 쇼핑몰 상품 이미지나 상업적 데이터에 기반하기 때문에, 사용자가 실제로 가진 옷을 고려하지 못하거나 단순한 필터링 수준에 그치는 한계가 있습니다.
