@@ -18,7 +18,7 @@ const chunkArray = (arr, size) => {
     return chunks;
 };
 
-const developerChunks = chunkArray(developerNames, 6);
+const developerChunks = chunkArray(developerNames, 7);
 
 
 const Thanksto = () => {

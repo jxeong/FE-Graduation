@@ -18,7 +18,7 @@ const ExhibitionContent = () => (
     <div className="exhibition-text">
       <h1>덕성여자대학교 소프트웨어전공 <br /> 제 3회 졸업전시: 공명(共鳴)</h1>
       <h2>졸업 작품 목록</h2>
-      <p>* 총 9팀 / 팀별 프로젝트 사진, 이름, 설명 등등</p>
+      <p>*</p>
     </div>
 
     <div className="project-grid">

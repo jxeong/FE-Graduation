@@ -7,11 +7,11 @@
   
   .overview-text {
     max-width: 700px;
-    color: #222;
+    color: #17153B;
   }
   
   .overview-text h1 {
-    color: rgb(121, 68, 255);
+    color: #433D8B;
     font-size: 23px;
     font-weight: 600;
     line-height: 1.4;
@@ -19,14 +19,14 @@
   }
   
   .overview-text h2 {
-    color: rgb(121, 68, 255);
+    color: #433D8B;
     font-size: 20px;
     font-weight: 500;
     margin-bottom: 20px;
   }
   
   .overview-text h3 {
-    color: rgb(121, 68, 255);
+    color: #433D8B;
     font-size: 18px;
     font-weight: 500;
     margin: 4px 0;
@@ -37,7 +37,7 @@
   }
   
   .overview-text p {
-    color: #333;
+    color: #6b71a0;
     font-size: 13px;
     font-weight: 500;
     line-height: 1.9;
@@ -60,6 +60,7 @@
 .time-unit span {
   font-size: 1.5em;
   font-weight: 200;
+  color: #6b71a0;
 }
 
 .time-unit p {

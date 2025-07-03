@@ -8,7 +8,6 @@ body {
   position: fixed;
   width: 20px;
   height: 20px;
-  background-color: black;
   border-radius: 50%;
   pointer-events: none;
   transform: translate(-50%, -50%);

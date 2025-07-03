@@ -68,7 +68,9 @@ const ProjectDetail = () => {
               ref={(el) => (contentRefs.current['description'] = el)}
               className={`toggle-content ${openSection === 'description' ? 'open' : ''}`}
             >
-              <p>{project.description}</p>
+              {project.description.split('\n').map((para, i) => (
+                <p key={i}>{para}</p>
+              ))}
             </div>
           </>
         )}
@@ -85,7 +87,13 @@ const ProjectDetail = () => {
               ref={(el) => (contentRefs.current['stack'] = el)}
               className={`toggle-content ${openSection === 'stack' ? 'open' : ''}`}
             >
-              <p>{project.technologies.join(', ')}</p>
+              {typeof project.technologies === 'object' && !Array.isArray(project.technologies) ? (
+                Object.entries(project.technologies).map(([category, items]) => (
+                  <p key={category}><strong> {category} | </strong> {items.join(', ')}</p>
+                ))
+              ) : (
+                <p>{project.technologies.join(', ')}</p>
+              )}
             </div>
           </>
         )}
@@ -142,7 +150,14 @@ const ProjectDetail = () => {
                 {project.members.map((member, idx) => (
                   <li key={idx}>
                     <p><strong className="member-name">✶ {member.name}</strong> | <span className="member-role">{member.role}</span></p>
-                    <p className="member-message">{member.message}</p>
+                    <p className="member-message">
+                      {member.message.split('\n').map((line, i) => (
+                        <React.Fragment key={i}>
+                          {line}
+                          <br />
+                        </React.Fragment>
+                      ))}
+                    </p>
                   </li>
                 ))}
               </ul>
@@ -150,23 +165,49 @@ const ProjectDetail = () => {
           </>
         )}
 
-
-        {project.extra?.customSection && (
+        {project.extra?.customSection && Array.isArray(project.extra.customSection) && (
           <>
             <strong
               onClick={() => toggleSection('custom')}
               className={`toggle-header ${openSection === 'custom' ? 'active' : ''}`}
             >
-              ▶︎ SPECIAL QUESTIONS!
+              ▶︎ Team Question
             </strong>
             <div
               ref={(el) => (contentRefs.current['custom'] = el)}
               className={`toggle-content ${openSection === 'custom' ? 'open' : ''}`}
             >
-              <p>{project.extra.customSection}</p>
+              {project.extra.customSection.map((qa, index) => (
+                <div key={index} className="qa-block">
+                  <p className="question"><strong>Q. {qa.question}</strong></p>
+                  {qa.answer.split('\n').map((line, i) => (
+                    <p key={i} className="answer">A. {line}</p>
+                  ))}
+                </div>
+              ))}
             </div>
           </>
         )}
+
+        {project.extra?.thanksTo && (
+          <>
+            <strong
+              onClick={() => toggleSection('thanks')}
+              className={`toggle-header ${openSection === 'thanks' ? 'active' : ''}`}
+            >
+              ▶︎ Special Thanks To
+            </strong>
+            <div
+              ref={(el) => (contentRefs.current['thanks'] = el)}
+              className={`toggle-content ${openSection === 'thanks' ? 'open' : ''}`}
+            >
+              {project.extra.thanksTo.split('\n').map((line, idx) => (
+                <p key={idx}>{line}</p>
+              ))}
+            </div>
+          </>
+        )}
+
       </div>
 
       <div className="navigation-footer">
