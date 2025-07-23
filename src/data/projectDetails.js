@@ -8,7 +8,7 @@ export const projectDetails = {
     team: '해핑',
     advisor: '강지헌 교수님',
     keywords: ['Real-time Ensemble', 'Hand Recognition', 'Virtual Instrument', 'Android APP'],
-    images: ['/images/sample.jpg', '/images/sample2.jpg'],
+    images: ['/images/team1/001.jpg', '/images/team1/002.jpg', '/images/team1/003.jpg', '/images/team1/004.jpg', '/images/team1/005.jpg', '/images/team1/006.jpg'],
     description: `악기를 배우고 싶다는 마음은 누구에게나 있지만 실제로 이를 실행에 옮기기란 쉽지 않습니다. 특히 공간의 제약, 고가의 비용, 그리고 악기를 처음 접하는 초보자 입장에서의 부담감은 악기 연주의 진입 장벽으로 작용해왔습니다.
 
 실제로 악기를 구매하거나 연습할 장소를 마련하는 일은 쉽지 않은 일이며 이러한 현실적인 문제로 인해 많은 이들이 악기 연주를 망설이게 됩니다.
@@ -80,7 +80,7 @@ export const projectDetails = {
     team: 'Cerberus',
     advisor: '이재호 교수님',
     keywords: ['IoT', 'Android', 'Deep Learning', 'MSA', 'WebRTC SFU'],
-    images: ['/images/sample.jpg', '/images/sample2.jpg'],
+    images: ['/images/team2/001.png', '/images/team2/002.png', '/images/team2/003.png', '/images/team2/004.png', '/images/team2/005.png', '/images/team2/006.png'],
     description: `고령화 사회 속 안전 사각지대를 해소하기 위한 실시간 모니터링 솔루션인 [ ElderEye ]를 제작하였습니다. 한국은 세계에서 가장 빠르게 고령화가 진행되고 있으며, 독거노인의 고립 문제와 넘어짐 사고는 중요한 사회적 문제로 부상하고 있습니다.
 
 ElderEye는 IoT, 딥러닝, 실시간 스트리밍 기술을 하나로 결합해, 상황을 빠르게 인지하고 대응할 수 있는 통합 시스템을 제공합니다. 딥러닝 기반의 쓰러짐 감지 모델, WebRTC SFU 기반의 실시간 스트리밍, gRPC 기반의 IoT 통신, 모바일 앱을 통한 사용자 인터페이스를 결합합니다. 이로 인해 노인의 실시간 상태를 가족과 보호자가 언제 어디서나 모니터링할 수 있도록 돕습니다.
@@ -132,7 +132,7 @@ ElderEye의 쓰러짐 감지 영역에서는 CNN + AE + GRU + Transformer로 구
     team: 'Temple',
     advisor: '이형규 교수님',
     keywords: ['Android APP', '러닝', '피드백', '음악추천', '게임'],
-    images: ['/images/sample3.png'],
+    images: ['/images/team3/001.png', '/images/team3/002.png', '/images/team3/003.png', '/images/team3/004.png', '/images/team3/005.png', '/images/team3/006.png'],
     description: `현대인의 건강 관심 증대로 러닝은 시간과 장소의 제약 없이 즐길 수 있는 대표적 운동으로 자리 잡았습니다. 그러나 기존 러닝 앱은 주로 거리·시간·속도 등 정량적 지표에만 의존하여 사용자 개개인의 실시간 생체 신호 변화나 운동 효율성을 충분히 반영하지 못하고 있습니다.
 
 본 프로젝트는 모바일에 내장된 센서를 통해 호흡 패턴과 보행 리듬을 실시간으로 분석하고, AI 기반 맞춤형 피드백 및 음악 추천 기능을 통합한 모바일 애플리케이션을 개발하는 것을 목표로 합니다. 이를 통해 사용자에게 즉각적이고 개인화된 코칭을 제공하여 부상 위험을 줄이고 러닝 몰입도를 높이며 효율적인 운동 경험을 지원합니다.`,
@@ -201,7 +201,7 @@ ElderEye의 쓰러짐 감지 영역에서는 CNN + AE + GRU + Transformer로 구
       'Face Recognition',
       'Personalized Recommendation'
     ],
-    images: ['/images/sample3.png'],
+    images: ['/images/team4/1.png', '/images/team4/2.png', '/images/team4/3.png', '/images/team4/4.png', '/images/team4/5.png'],
     description: `현대 사회의 청년들은 고물가, 불안정한 고용, 주거 문제 등 다양한 사회·경제적 압박 속에서 심리적 부담을 안고 살아가고 있습니다. 이러한 현실은 연애와 인간관계의 시작마저 어렵게 만들고 있으며, 많은 이들이 마땅한 만남의 기회를 갖지 못하는 상황에 놓여 있습니다.
 
 저희 팀은 이러한 문제의식에서 출발하여, AI 기반 이상형 매칭 서비스를 개발하게 되었습니다. 기존의 연애 매칭 서비스는 주관적인 설문이나 단순한 정보 기반 추천에 의존해, 사용자 개개인의 외적 취향과 같은 핵심 호감 요소를 충분히 반영하지 못하는 한계를 지니고 있었습니다. 이에 저희는 사용자의 프로필 사진과 이상형 선호 데이터를 AI가 학습하고, 개인의 외적 취향에 최적화된 상대를 추천하는 시스템을 기획했습니다.
@@ -350,7 +350,7 @@ Inside Mirror는 시선 추적, 음성 인식 기반 챗봇, 얼굴 인식 로�
       'Image & Text Processing',
       'Video Diary Creation'
     ],
-    images: ['/images/sample2.jpg'],
+    images: ['/images/team6/1.png', '/images/team6/2.png', '/images/team6/3.png', '/images/team6/4.png', '/images/team6/5.png', '/images/team6/6.png'],
     description: `최근 MZ세대에게 인스타그램, 인생네컷, 제페토 등 다양한 방식으로 일상을 기록하고 감정을 표현하는 문화가 확산되고 있습니다. 이러한 트렌드는 개인의 정체성을 드러내고, 감정을 나누는 하나의 사회적 언어로 자리 잡고 있습니다.
 
 MiniArca는 이 흐름 속에서 사용자가 자신의 하루를 보다 감성적으로 기록하고 공유할 수 있도록 고안된, 새로운 AI 기반 디지털 플랫폼입니다.
@@ -423,7 +423,7 @@ MiniArca를 통한 일상 기록은 단순히 기록을 넘어 감정과 경험�
     team: '왕감자조림',
     advisor: '이형규 교수님',
     keywords: ['Android App', 'Chatbot', '감정 분석'],
-    images: ['/images/sample.jpg'],
+    images: ['/images/team7/1.png', '/images/team7/2.png', '/images/team7/3.png', '/images/team7/4.png', '/images/team7/5.png', '/images/team7/6.png'],
     description: `현대 사회는 빠른 고령화 속도와 1인 가구 증가라는 이중적인 구조적 변화 속에 놓여 있습니다. 특히 중장년층 및 노년층의 경우, 가족 내 소통 단절이나 지역사회와의 단절로 인해 정서적 고립과 우울감을 겪는 비율이 점차 증가하고 있습니다. 이러한 사회적 배경 속에서 본 프로젝트는 정서적 지지와 일상적 교류를 제공할 수 있는 AI 기반 챗봇 시스템을 기획하게 되었습니다.`,
     technologies: {
       Skill: ['Python', 'JavaScript'],

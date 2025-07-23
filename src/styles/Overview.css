@@ -95,6 +95,19 @@
   /* 포스터 크기 조절 */
   height: auto;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  animation: floats 5s ease-in-out infinite;
+}
+
+@keyframes floats {
+
+  0%,
+  100% {
+    transform: translateY(3px);
+  }
+
+  50% {
+    transform: translateY(-3px);
+  }
 }
 
 .map-menus {
