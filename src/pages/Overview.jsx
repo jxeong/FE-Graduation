@@ -58,56 +58,17 @@ const Overview = () => {
     };
   }, []);
 
-  // useEffect(() => {
-  //   if (window.Kakao && !window.Kakao.isInitialized()) {
-  //     window.Kakao.init('5c38be5c3571ea58cc27577a8decd4cd');
-  //   }
-
-  //   window.Kakao.Link.createScrapButton({
-  //     container: '#kakao-share-btn',
-  //     requestUrl: window.location.href, // 현재 페이지 공유
-  //     templateId: 121315 // 필요 시 추가
-  //   });
-  // }, []);
-
   useEffect(() => {
     if (window.Kakao && !window.Kakao.isInitialized()) {
       window.Kakao.init('5c38be5c3571ea58cc27577a8decd4cd');
     }
 
-    window.Kakao.Link.createDefaultButton({
+    window.Kakao.Link.createScrapButton({
       container: '#kakao-share-btn',
-      objectType: 'feed',
-      address: '덕성여자대학교',
-      addressTitle: '덕성여자대학교 오스카라운지',
-      content: {
-        title: '덕성여자대학교 소프트웨어전공 제3회 졸업전시: 공명(共鳴)',
-        description: '9월 7일(일) ~ 9월 9일(화) · 덕성여대 오스카라운지',
-        imageUrl: 'https://your-site.vercel.app/images/poster.png', // Vercel에 있는 공개 이미지 URL
-        link: {
-          mobileWebUrl: window.location.href,
-          webUrl: window.location.href
-        }
-      },
-      buttons: [
-        {
-          title: '온라인 전시',
-          link: {
-            mobileWebUrl: 'https://your-site.vercel.app/exhibition',
-            webUrl: 'https://your-site.vercel.app/exhibition'
-          }
-        },
-        {
-          title: '오시는 길',
-          link: {
-            mobileWebUrl: 'https://naver.me/xxxxxx', // 네이버 지도 링크 등
-            webUrl: 'https://naver.me/xxxxxx'
-          }
-        }
-      ]
+      requestUrl: window.location.href, // 현재 페이지 공유
+      templateId: 121315 // 필요 시 추가
     });
   }, []);
-
 
 
   const renderAnimatedH1 = (text, index) => {
