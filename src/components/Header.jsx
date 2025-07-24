@@ -33,6 +33,9 @@ const Header = () => {
         <Link to="/pdf">
           <a href='#!'>BOOKS</a>
         </Link>
+        <Link to="/musics">
+          <a href='#!'>MUSICS</a>
+        </Link>
         <Link to="/thanksto">
           <a href='#!'>THANKS-TO</a>
         </Link>
@@ -52,6 +55,9 @@ const Header = () => {
             </Link>
             <Link to="/pdf" onClick={toggleMenu}>
               <a href='#!'>BOOKS</a>
+            </Link>
+            <Link to="/musics" onClick={toggleMenu}>
+              <a href='#!'>MUSICS</a>
             </Link>
             <Link to="/thanksto" onClick={toggleMenu}>
               <a href='#!'>THANKS-TO</a>

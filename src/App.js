@@ -12,6 +12,7 @@ import PdfViewer from './pages/PdfViewer';
 import ExhibitionContent from './pages/ExhibitionContent';
 import ProjectDetail from './pages/ProjectDetail';
 import Thanksto from './pages/Thanksto';
+import Musics from './pages/Musics';
 import Intro from './components/Intro';
 
 import './App.css';
@@ -38,6 +39,7 @@ function AnimatedRoutes() {
         <Route path="/pdf" element={<PageWrapper><PdfViewer /></PageWrapper>} />
         <Route path="/projects" element={<PageWrapper><ExhibitionContent /></PageWrapper>} />
         <Route path="/project/:id" element={<PageWrapper><ProjectDetail /></PageWrapper>} />
+        <Route path="/musics" element={<PageWrapper><Musics /></PageWrapper>} />
         <Route path="/thanksto" element={<PageWrapper><Thanksto /></PageWrapper>} />
       </Routes>
     </AnimatePresence>

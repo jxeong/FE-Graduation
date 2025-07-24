@@ -88,7 +88,7 @@ const ProjectDetail = () => {
         >
           {/* 안내 메시지 */}
           {!hasSwiped && (
-            <div className="swipe-hint">▸▸▸ Swipe Image ▸▸</div>
+            <div className="swipe-hint">▸▸▸ Swipe ▸▸</div>
           )}
 
           <div
