@@ -142,12 +142,14 @@
 }
 
 .professor-message img {
-  width: 150px;
-  min-width: 120px;
-  max-width: 30%;
-  border-radius: 5px;
+  width: 150px;        /* 또는 100% */
+  height: 150px;       /* 또는 aspect-ratio 사용 */
+  /* border-radius: 50%; */
   object-fit: cover;
+  margin-top: 10px;
+  
 }
+
 
 .professor-message p {
   flex: 1;
@@ -206,10 +208,11 @@
   }
 
   .professor-message img {
-    max-width: 80%;
-    height: auto;
-    padding: 10px;
-  }
+  width: 150px;        /* 또는 100% */
+  height: 150px;       /* 또는 aspect-ratio 사용 */
+  object-fit: cover;
+}
+
 }
 
 .fade-in-section {
