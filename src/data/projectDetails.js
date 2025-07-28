@@ -423,7 +423,7 @@ MiniArca를 통한 일상 기록은 단순히 기록을 넘어 감정과 경험�
     team: '왕감자조림',
     advisor: '이형규 교수님',
     keywords: ['Android App', 'Chatbot', '감정 분석'],
-    images: ['/images/team7/1.png', '/images/team7/2.png', '/images/team7/3.png', '/images/team7/4.png', '/images/team7/5.png', '/images/team7/6.png'],
+    images: ['/images/team7/1.PNG', '/images/team7/2.PNG', '/images/team7/3.PNG', '/images/team7/4.PNG', '/images/team7/5.PNG', '/images/team7/6.PNG'],
     description: `현대 사회는 빠른 고령화 속도와 1인 가구 증가라는 이중적인 구조적 변화 속에 놓여 있습니다. 특히 중장년층 및 노년층의 경우, 가족 내 소통 단절이나 지역사회와의 단절로 인해 정서적 고립과 우울감을 겪는 비율이 점차 증가하고 있습니다. 이러한 사회적 배경 속에서 본 프로젝트는 정서적 지지와 일상적 교류를 제공할 수 있는 AI 기반 챗봇 시스템을 기획하게 되었습니다.`,
     technologies: {
       Skill: ['Python', 'JavaScript'],
