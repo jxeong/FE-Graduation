@@ -5,9 +5,7 @@ import '../styles/Thanksto.css';
 import duksungLogo from '../assets/duksung.png'; // 이미지 import
 
 const sponsors = [
-    { name: '덕성여대', image: duksungLogo },
-    // 나중에 추가 가능
-    // { name: '기타기업', image: otherLogo },
+    { name: '덕성여대', image: duksungLogo }
 ];
 
 const chunkArray = (arr, size) => {
@@ -114,8 +112,6 @@ const Thanksto = () => {
                 </div>
 
                 <div className="credit-section">
-                    {withFadeIn(<h2>SPONSORS</h2>, 4)}
-                    <h3>후원사</h3>
                     <div className="sponsor-logos">
                         {sponsors.map((sponsor) => (
                             <img

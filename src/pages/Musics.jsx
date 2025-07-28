@@ -41,7 +41,7 @@ const Musics = () => {
 
     return (
         <section className="musics-page">
-            {withFadeIn(<h1>✦ PLAYLIST ✦</h1>, 0)}
+            {withFadeIn(<h1>✦ PLAYLIST ✦ - 수정 필요</h1>, 0)}
 
             <div className="cd-container">
                 <img src={cdImage} alt="CD GIF" className="cd-gif" />

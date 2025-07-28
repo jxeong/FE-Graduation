@@ -170,7 +170,7 @@ const Overview = () => {
             }}
           />
         </section> */}
-        <p className="route">카페 말로에서 오른쪽으로 꺾으면 오스카라운지 입구.... (안내 설명 + 사진)</p>
+        <p className="route">카페 말로에서 오른쪽으로 꺾으면 오스카라운지 입구.... (안내 설명 + 사진 추가 필요)</p>
         <div className='map-menus'>
           <a href="https://naver.me/xprtKrM9" className='navermap'>네이버지도</a><br />
           <a href="https://place.map.kakao.com/16067281" className='kakaomap'>카카오맵</a>

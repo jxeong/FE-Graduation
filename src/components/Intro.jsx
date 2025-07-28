@@ -72,8 +72,9 @@ const Intro = ({ onClickLogo, fadeOut }) => {
           className="intro-logo"
         />
         {renderScatterText('What is happening?', 'intro-text')}
-        {renderScatterText('CLICK ANYWHERE', 'intro-text')}
+        {/* {renderScatterText('CLICK ANYWHERE', 'intro-text')} */}
       </div>
+      <div className="click-guide">Click Anywhere to Enter!</div>
     </div>
   );
 };
