@@ -24,6 +24,10 @@ const ProjectDetail = () => {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     Object.keys(contentRefs.current).forEach((key) => {
       const el = contentRefs.current[key];
       if (el) {
