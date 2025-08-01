@@ -12,7 +12,7 @@ const PdfViewer = () => {
       </div>
       
       {/* PDF preview로 해줘야 오류 안남 */}
-      <embed src="https://drive.google.com/file/d/1xAo4XVjnTRrNSqrVA0RI-YKXRq_Akp7I/preview?usp=sharing" frameborder="0" width="100%" height="100%"></embed>
+      <embed src="https://drive.google.com/file/d/1fyzw0HFpHl8EZIjjvvLppruE2DmUnVv0/preview?usp=sharing" frameborder="0" width="100%" height="100%"></embed>
     </Box>
   );
 };
