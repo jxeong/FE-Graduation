@@ -8,25 +8,35 @@ import bg5 from './background5.mp4';
 import bg6 from './background6.mp4';
 
 const Intro = ({ onClickLogo, fadeOut }) => {
-  // 영상 배열에서 1개 랜덤 선택
   const videoSources = useMemo(() => [bg4, bg5, bg6], []);
   const [selectedVideo] = useState(() => {
     const randomIndex = Math.floor(Math.random() * videoSources.length);
     return videoSources[randomIndex];
   });
 
-  // 5초 후 자동 전환
+  const [isVideoReady, setIsVideoReady] = useState(false);
+
+  // 재생 가능 상태일 때만 7초 후 페이지 전환
   useEffect(() => {
+    if (!isVideoReady) return;
     const timer = setTimeout(() => {
       onClickLogo();
     }, 7000);
     return () => clearTimeout(timer);
-  }, [onClickLogo]);
+  }, [isVideoReady, onClickLogo]);
 
   return (
     <div className={`intro-container ${fadeOut ? 'fade-out' : ''}`} onClick={onClickLogo}>
-      {/* 랜덤 배경 영상 */}
-      <video className="bg-video" autoPlay loop muted playsInline>
+      {/* 배경 영상 */}
+      <video
+        className="bg-video"
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+        onCanPlayThrough={() => setIsVideoReady(true)}
+      >
         <source src={selectedVideo} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
