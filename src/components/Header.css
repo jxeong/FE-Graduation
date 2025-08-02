@@ -6,11 +6,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 0px;
-  /* background-color: #A6B1E1; */
-  background-image: url('./wave.png'); /* 배경 이미지 경로 */
-  background-size: cover;     /* 이미지를 꽉 채우기 */
-  background-position: center; /* 가운데 정렬 */
-  background-repeat: no-repeat;
+  background-color: #A6B1E1;
   color: white;
   position: relative;
   z-index: 100;
