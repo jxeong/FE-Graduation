@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
-import bgVideo from './background6.mp4'; // 📌 영상 파일 경로에 맞게 조정하세요
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,9 +20,9 @@ const Header = () => {
 
   return (
     <header className="header">
-      {/* 🎬 배경 영상 */}
-      <video className="header-bg-video" autoPlay loop muted playsInline>
-        <source src={bgVideo} type="video/mp4" />
+      {/* 🎬 public 경로 영상 */}
+      <video className="header-bg-video" autoPlay loop muted playsInline preload="auto">
+        <source src="/background6.mp4" type="video/mp4" />
       </video>
 
       <div className="title">

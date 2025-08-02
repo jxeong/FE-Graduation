@@ -1,22 +1,23 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import './Intro.css';
 import logo from './exampleLogo2.png';
 
-// 배경 영상들 import
-import bg4 from './background4.mp4';
-import bg5 from './background5.mp4';
-import bg6 from './background6.mp4';
-
 const Intro = ({ onClickLogo, fadeOut }) => {
-  const videoSources = useMemo(() => [bg4, bg5, bg6], []);
+  const videoRef = useRef(null);
+  const [isVideoReady, setIsVideoReady] = useState(false);
+
+  const videoSources = useMemo(() => [
+    '/background4.mp4',
+    '/background5.mp4',
+    '/background6.mp4',
+  ], []);
+
   const [selectedVideo] = useState(() => {
     const randomIndex = Math.floor(Math.random() * videoSources.length);
     return videoSources[randomIndex];
   });
 
-  const [isVideoReady, setIsVideoReady] = useState(false);
-
-  // 재생 가능 상태일 때만 7초 후 페이지 전환
+  // 7초 후 자동 전환 (영상이 준비된 경우만)
   useEffect(() => {
     if (!isVideoReady) return;
     const timer = setTimeout(() => {
@@ -25,10 +26,23 @@ const Intro = ({ onClickLogo, fadeOut }) => {
     return () => clearTimeout(timer);
   }, [isVideoReady, onClickLogo]);
 
+  const handleClick = () => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    if (video.paused) {
+      // 영상 멈춰있으면 재생만 시도 (페이지 전환 X)
+      video.play().catch(() => {});
+    } else {
+      // 영상 이미 재생 중이면 → 페이지 넘어감
+      onClickLogo();
+    }
+  };
+
   return (
-    <div className={`intro-container ${fadeOut ? 'fade-out' : ''}`} onClick={onClickLogo}>
-      {/* 배경 영상 */}
+    <div className={`intro-container ${fadeOut ? 'fade-out' : ''}`} onClick={handleClick}>
       <video
+        ref={videoRef}
         className="bg-video"
         autoPlay
         loop
@@ -41,7 +55,6 @@ const Intro = ({ onClickLogo, fadeOut }) => {
         Your browser does not support the video tag.
       </video>
 
-      {/* 중앙 콘텐츠 */}
       <div className="intro-content">
         <img src={logo} alt="로고" className="intro-logo" />
         <h1 className="intro-title">2025<br/>DSWU SOFTWARE<br />GRADUATION EXHIBITION</h1>
