@@ -61,16 +61,16 @@ function App() {
     <Router>
       <div className="app-container">
         <CustomCursor />
-        {/* {showIntro ? (
+        {showIntro ? (
           <Intro onClickLogo={handleIntroClick} fadeOut={fadeOut} />
-        ) : ( */}
+        ) : (
           <>
             <Header />
             <AnimatedRoutes />
             <ScrollToTopButton />
             <Footer />
           </>
-        {/* )} */}
+        )}
       </div>
     </Router>
   );

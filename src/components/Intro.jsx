@@ -1,80 +1,43 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import './Intro.css';
+import logo from './exampleLogo2.png';
+
+// 배경 영상들 import
+import bg3 from './background3.mp4';
+import bg4 from './background4.mp4';
+import bg5 from './background5.mp4';
+import bg6 from './background6.mp4';
 
 const Intro = ({ onClickLogo, fadeOut }) => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-  const [isScattered, setIsScattered] = useState(false);
-  const [randomTransforms, setRandomTransforms] = useState([]);
+  // 영상 배열에서 1개 랜덤 선택
+  const videoSources = useMemo(() => [bg3, bg4, bg5, bg6], []);
+  const [selectedVideo] = useState(() => {
+    const randomIndex = Math.floor(Math.random() * videoSources.length);
+    return videoSources[randomIndex];
+  });
 
-  // 다크모드 감지
+  // 5초 후 자동 전환
   useEffect(() => {
-    const match = window.matchMedia('(prefers-color-scheme: dark)');
-    setIsDarkMode(match.matches);
-    const handleChange = (e) => setIsDarkMode(e.matches);
-    match.addEventListener('change', handleChange);
-    return () => match.removeEventListener('change', handleChange);
-  }, []);
-
-  // 텍스트 한 글자씩 나눠 랜덤 위치 미리 생성
-  useEffect(() => {
-    const textLength = Math.max('What is happening?'.length, 'CLICK ANYWHERE'.length);
-    const transforms = [];
-    for (let i = 0; i < textLength; i++) {
-      const x = (Math.random() - 0.5) * 1000; // -500 ~ 500
-      const y = (Math.random() - 0.5) * 600;  // -300 ~ 300
-      const r = Math.random() * 360;
-      transforms.push({ x, y, r });
-    }
-    setRandomTransforms(transforms);
-  }, []);
-
-  // 클릭 시 흩어지게
-  const handleScatter = () => {
-    if (!isScattered) setIsScattered(true);
-    onClickLogo(); // 기존 intro 클릭 기능도 유지
-  };
-
-  // 텍스트 렌더링
-  const renderScatterText = (text, className) => {
-    return (
-      <div className={className}>
-        {text.split('').map((char, idx) => {
-          const { x, y, r } = randomTransforms[idx] || { x: 0, y: 0, r: 0 };
-          return (
-            <span
-              key={idx}
-              className="scatter-letter"
-              style={{
-                transform: isScattered
-                  ? `translate(${x}px, ${y}px) rotate(${r}deg)`
-                  : 'translate(0, 0) rotate(0deg)',
-                transition: 'transform 0.7s ease-out',
-                display: 'inline-block',
-              }}
-            >
-              {char === ' ' ? '\u00A0' : char}
-            </span>
-          );
-        })}
-      </div>
-    );
-  };
+    const timer = setTimeout(() => {
+      onClickLogo();
+    }, 5000);
+    return () => clearTimeout(timer);
+  }, [onClickLogo]);
 
   return (
-    <div
-      className={`intro-container ${fadeOut ? 'fade-out' : ''} ${isDarkMode ? 'dark-mode' : ''}`}
-      onClick={handleScatter}
-    >
+    <div className={`intro-container ${fadeOut ? 'fade-out' : ''}`} onClick={onClickLogo}>
+      {/* 랜덤 배경 영상 */}
+      <video className="bg-video" autoPlay loop muted playsInline>
+        <source src={selectedVideo} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+      {/* 중앙 콘텐츠 */}
       <div className="intro-content">
-        <img
-          src={isDarkMode ? '/images/exampleLogo2.png' : '/images/exampleLogo.png'}
-          alt="Intro Logo"
-          className="intro-logo"
-        />
-        {renderScatterText('What is happening?', 'intro-text')}
-        {/* {renderScatterText('CLICK ANYWHERE', 'intro-text')} */}
+        <img src={logo} alt="로고" className="intro-logo" />
+        <h1 className="intro-title">2025<br/>DSWU SOFTWARE<br />GRADUATION EXHIBITION</h1>
+        <h3>Click to Enter!</h3>
       </div>
-      <div className="click-guide">Click Anywhere to Enter!</div>
     </div>
   );
 };

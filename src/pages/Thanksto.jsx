@@ -37,7 +37,7 @@ const Thanksto = () => {
             { threshold: 0.1 }
         );
 
-        const currentElements = elementsRef.current; // ✅ 로컬 복사
+        const currentElements = elementsRef.current; // 로컬 복사
         currentElements.forEach((el) => {
             if (el) observer.observe(el);
         });
@@ -64,7 +64,7 @@ const Thanksto = () => {
 
     return (
         <section className="thanksto-content">
-            {withFadeIn(<h1>덕성여자대학교 소프트웨어전공 <br /> 제 3회 졸업전시: 공명(共鳴)</h1>, 0)}            <img src="/images/exampleLogo.png" alt="logo" className="floating-logo" />
+            {withFadeIn(<h1>덕성여자대학교 소프트웨어전공 <br /> 제 3회 졸업전시: 공명(共鳴)</h1>, 0)}            <img src="/images/exampleLogo5.png" alt="logo" className="floating-logo" />
 
             <div className="thanksto-text">
                 <div className="credit-section">

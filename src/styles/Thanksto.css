@@ -8,7 +8,7 @@
 }
 
 .thanksto-content h1 {
-  color: #433D8B;
+  color: #3e32be;
   font-size: 20px;
   font-weight: 600;
   line-height: 1.4;
@@ -22,7 +22,7 @@
 }
 
 .thanksto-text h1 {
-  color: #433D8B;
+  color: #3e32be;
   font-size: 23px;
   font-weight: 600;
   line-height: 1.4;
@@ -30,14 +30,14 @@
 }
 
 .thanksto-text h2 {
-  color: #433D8B;
+  color: #3e32be;
   font-size: 20px;
   font-weight: 500;
   margin-bottom: 20px;
 }
 
 .thanksto-text h3 {
-  color: #433D8B;
+  color: #3e32be;
   font-size: 18px;
   font-weight: 500;
   margin: 4px 0;
@@ -57,8 +57,8 @@
 }
 
 .floating-logo {
-  width: 120px;
-  animation: float 3.5s ease-in-out infinite;
+  width: 220px;
+  /* animation: float 3.5s ease-in-out infinite; */
   margin: 30px 0px;
 }
 
@@ -66,11 +66,11 @@
 
   0%,
   100% {
-    transform: translateY(0px) rotate(0deg);
+    transform: translateY(5px) rotate(-1deg);
   }
 
   50% {
-    transform: translateY(-15px) rotate(2deg);
+    transform: translateY(-5px) rotate(1deg);
   }
 }
 
@@ -81,21 +81,21 @@
 .credit-section h2 {
   font-size: 18px;
   font-weight: 600;
-  color: #433D8B;
+  color: #3e32be;
   margin-bottom: 5px;
 }
 
 .credit-section h3 {
   font-size: 14px;
   font-weight: 400;
-  color: #433D8B;
+  color: #3e32be;
   margin-bottom: 10px;
 }
 
 .credit-section .credit-ment {
   font-size: 14px;
   font-weight: 500;
-  color: #433D8B;
+  color: #3e32be;
   margin-bottom: 10px;
 }
 

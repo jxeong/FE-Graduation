@@ -1,116 +1,46 @@
 .intro-container {
+  position: relative;
   width: 100vw;
   height: 100vh;
-  background-color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: opacity 0.7s ease;
-  opacity: 1;
+  overflow: hidden;
   cursor: pointer;
-  perspective: 1000px;
 }
 
-.intro-container.dark-mode {
-  background-color: black;
-}
-
-.intro-container.fade-out {
-  opacity: 0;
-  pointer-events: none;
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
 }
 
 .intro-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  animation: float3D 5s linear infinite;
-  transform-style: preserve-3d;
-  perspective: 1000px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  z-index: 1;
 }
 
 .intro-logo {
-  width: 150px;
-  margin-bottom: 10px;
+  width: 300px;
+  height: auto;
+  margin-bottom: 20px;
 }
 
-.intro-text {
-  font-size: 16px;
-  color: #000000;
-  margin-bottom: 0;
-}
-
-.intro-container.dark-mode .intro-text {
+.intro-title {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.5;
   color: white;
 }
 
-.scatter-letter {
-  will-change: transform;
-}
-
- 
-@keyframes float3D {
-  0% {
-    transform: rotateZ(340deg) perspective(800px) rotateY(0deg) translateY(0px);
-  }
-  5% {
-    transform: rotateZ(341.25deg) perspective(800px) rotateY(36deg) translateY(-8px);
-  }
-  10% {
-    transform: rotateZ(342.5deg) perspective(800px) rotateY(72deg) translateY(-16px);
-  }
-  15% {
-    transform: rotateZ(343.75deg) perspective(800px) rotateY(108deg) translateY(-24px);
-  }
-  20% {
-    transform: rotateZ(345deg) perspective(800px) rotateY(144deg) translateY(-32px);
-  }
-  25% {
-    transform: rotateZ(346.25deg) perspective(800px) rotateY(180deg) translateY(-35px);
-  }
-  30% {
-    transform: rotateZ(347.5deg) perspective(800px) rotateY(216deg) translateY(-32px);
-  }
-  35% {
-    transform: rotateZ(348.75deg) perspective(800px) rotateY(252deg) translateY(-28px);
-  }
-  40% {
-    transform: rotateZ(350deg) perspective(800px) rotateY(288deg) translateY(-24px);
-  }
-  45% {
-    transform: rotateZ(351.25deg) perspective(800px) rotateY(324deg) translateY(-18px);
-  }
-  50% {
-    transform: rotateZ(352.5deg) perspective(800px) rotateY(360deg) translateY(-12px);
-  }
-  55% {
-    transform: rotateZ(353.75deg) perspective(800px) rotateY(324deg) translateY(-6px);
-  }
-  60% {
-    transform: rotateZ(355deg) perspective(800px) rotateY(288deg) translateY(0px);
-  }
-  65% {
-    transform: rotateZ(356.25deg) perspective(800px) rotateY(252deg) translateY(-5px);
-  }
-  70% {
-    transform: rotateZ(357.5deg) perspective(800px) rotateY(216deg) translateY(-10px);
-  }
-  75% {
-    transform: rotateZ(358.75deg) perspective(800px) rotateY(180deg) translateY(-15px);
-  }
-  80% {
-    transform: rotateZ(360deg) perspective(800px) rotateY(144deg) translateY(-20px);
-  }
-  85% {
-    transform: rotateZ(358deg) perspective(800px) rotateY(108deg) translateY(-15px);
-  }
-  90% {
-    transform: rotateZ(356deg) perspective(800px) rotateY(72deg) translateY(-10px);
-  }
-  95% {
-    transform: rotateZ(354deg) perspective(800px) rotateY(36deg) translateY(-5px);
-  }
-  100% {
-    transform: rotateZ(340deg) perspective(800px) rotateY(0deg) translateY(0px);
-  }
+/* 페이드 아웃 효과 */
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.7s ease;
 }
