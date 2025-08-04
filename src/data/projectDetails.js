@@ -269,7 +269,7 @@ ElderEye의 쓰러짐 감지 영역에서는 CNN + AE + GRU + Transformer로 구
     id: 5,
     title: 'INSIDE MIRROR',
     subtitle: '거울 앞, 당신의 하루가 스마트해진다',
-    team: '넘파이브 (N°5)',
+    team: 'N°5 (넘파이브)',
     advisor: '강지헌 교수님',
     keywords: [
       'Smart Mirror',

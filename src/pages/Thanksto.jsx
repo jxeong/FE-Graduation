@@ -77,7 +77,7 @@ const Thanksto = () => {
                         {professors.map((prof) => (
                             <span
                                 key={prof.name}
-                                className="clickable-name"
+                                className={`clickable-name ${activeProfessor === prof.name ? 'active' : ''}`}
                                 onClick={() => handleClick(prof.name)}
                             >
                                 {prof.name}
@@ -105,13 +105,14 @@ const Thanksto = () => {
                     </div>
                 </div>
 
-                <div className="credit-section">
+                <div className="credit-section committee-section">
                     {withFadeIn(<h2>COMMITTEE</h2>, 3)}
                     <h3>졸업전시준비위원회</h3>
                     <p><strong>총괄 기획・운영</strong>  전다혜</p>
                     <p><strong>기획・웹사이트</strong> 김소정</p>
                     <p><strong>디자인</strong> 김하정</p>
                 </div>
+
 
 
                 <div className="credit-section">

@@ -99,6 +99,11 @@
   margin-bottom: 10px;
 }
 
+.committee-section p {
+  text-align: center;
+}
+
+
 .professor-list {
   display: flex;
   flex-wrap: wrap;
@@ -118,6 +123,12 @@
 .clickable-name:hover {
   color: #A6B1E1;
 }
+
+.clickable-name.active {
+  font-weight: 700; /* 볼드 처리 */
+  color: #3e32be;   /* 강조 색 */
+}
+
 
 .professor-message.below-list {
   display: flex;

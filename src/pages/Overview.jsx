@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState, useMemo } from 'react';
 import '../styles/Overview.css';
 import kakaoIcon from '../assets/footer_kakao.png';
 import instagramIcon from '../assets/instagram.png';
+import navermapIcon from '../assets/navermap.png';
+import kakaomapIcon from '../assets/kakaomap.png';
 
 const Overview = () => {
   const targetDate = useMemo(() => new Date('2025-09-07T14:00:00'), []);
@@ -11,6 +13,7 @@ const Overview = () => {
   });
 
   const h1Refs = useRef([]);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [visibleIndexes, setVisibleIndexes] = useState([]);
 
   useEffect(() => {
@@ -136,7 +139,7 @@ const Overview = () => {
           공명(共鳴)은 단지 소리의 울림만을 의미하지 않습니다.
           서로 다른 주파수를 가진 이들이 한 공간에 모여, 각자의 색으로 고민하고 탐구한 결과가 만나 하나의 울림을 만들어냈습니다.
           기술과 예술, 기능과 감성의 경계를 넘나들며 우리는 더 나은 삶과 더 넓은 가능성을 상상하고 구현해왔습니다.
-          <br/><br/>
+          <br /><br />
           소프트웨어전공은 디지털 전환 시대의 핵심 역량인 창의적 문제 해결과 논리적 사고를 기반으로, 인간과 기술, 사회를 연결하는 지능형 시스템과 서비스를 설계하고 구현하기 위해 나아가고 있습니다.
           이번 제3회 졸업전시는 그간의 배움과 도전, 그리고 협업의 시간이 집약된 결과입니다.</p>
         {renderAnimatedH1('WHERE\nAND WHEN', 1)}
@@ -170,10 +173,29 @@ const Overview = () => {
             }}
           />
         </section> */}
-        <p className="route">카페 말로에서 오른쪽으로 꺾으면 오스카라운지 입구.... (안내 설명 + 사진 추가 필요)</p>
-        <div className='map-menus'>
-          <a href="https://naver.me/xprtKrM9" className='navermap'>네이버지도</a><br />
-          <a href="https://place.map.kakao.com/16067281" className='kakaomap'>카카오맵</a>
+        <p className="route">[01369] 서울특별시 도봉구 삼양로 144길 33 덕성여자대학교 쌍문근화캠퍼스 도서관 1층 오스카라운지 (사진 수정 필요)</p>
+        <div className="map-menus">
+          <a href="https://naver.me/xprtKrM9" className="navermap" target="_blank" rel="noopener noreferrer">
+            <img src={navermapIcon} alt="네이버지도 아이콘" />
+            <span>네이버지도</span>
+          </a>
+          <a href="https://place.map.kakao.com/16067281" className="kakaomap" target="_blank" rel="noopener noreferrer">
+            <img src={kakaomapIcon} alt="카카오맵 아이콘" />
+            <span>카카오맵</span>
+          </a>
+        </div>
+        <div className="arrival-slider">
+          <button className="arrival-nav-btn left" onClick={() => setCurrentImageIndex((prev) => Math.max(prev - 1, 0))}>
+            ◀
+          </button>
+          <div className="arrival-slide-track" style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}>
+            {['/images/route1.png', '/images/sample2.jpg', '/images/sample3.png'].map((src, index) => (
+              <img key={index} src={src} alt={`arrival-${index}`} className="arrival-image" />
+            ))}
+          </div>
+          <button className="arrival-nav-btn right" onClick={() => setCurrentImageIndex((prev) => Math.min(prev + 1, 2))}>
+            ▶
+          </button>
         </div>
 
         {renderAnimatedH1('POSTER', 4)}
@@ -204,6 +226,22 @@ const Overview = () => {
             <span>인스타그램 바로가기</span>
           </button>
         </div>
+
+        {renderAnimatedH1('GALLERY', 6)}
+        <div className="gallery-slider">
+          <button className="gallery-nav-btn left" onClick={() => setCurrentImageIndex((prev) => Math.max(prev - 1, 0))}>
+            ◀
+          </button>
+          <div className="gallery-slide-track" style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}>
+            {['/images/gallery1.jpg', '/images/gallery2.jpg'].map((src, index) => (
+              <img key={index} src={src} alt={`gallery-${index}`} className="gallery-image" />
+            ))}
+          </div>
+          <button className="gallery-nav-btn right" onClick={() => setCurrentImageIndex((prev) => Math.min(prev + 1, 2))}>
+            ▶
+          </button>
+        </div>
+
 
 
       </div>
