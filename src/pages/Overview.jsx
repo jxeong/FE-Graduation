@@ -227,7 +227,7 @@ const Overview = () => {
           </button>
         </div>
 
-        {renderAnimatedH1('GALLERY', 6)}
+        {/* {renderAnimatedH1('GALLERY', 6)}
         <div className="gallery-slider">
           <button className="gallery-nav-btn left" onClick={() => setCurrentImageIndex((prev) => Math.max(prev - 1, 0))}>
             ◀
@@ -240,7 +240,7 @@ const Overview = () => {
           <button className="gallery-nav-btn right" onClick={() => setCurrentImageIndex((prev) => Math.min(prev + 1, 2))}>
             ▶
           </button>
-        </div>
+        </div> */}
 
 
 
