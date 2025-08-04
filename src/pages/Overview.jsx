@@ -184,7 +184,7 @@ const Overview = () => {
             <span>카카오맵</span>
           </a>
         </div>
-        {/* <div className="arrival-slider">
+        <div className="arrival-slider">
           <button className="arrival-nav-btn left" onClick={() => setCurrentImageIndex((prev) => Math.max(prev - 1, 0))}>
             ◀
           </button>
@@ -196,7 +196,7 @@ const Overview = () => {
           <button className="arrival-nav-btn right" onClick={() => setCurrentImageIndex((prev) => Math.min(prev + 1, 2))}>
             ▶
           </button>
-        </div> */}
+        </div>
 
         {renderAnimatedH1('POSTER', 4)}
         <div className="poster-wrapper">
@@ -227,7 +227,7 @@ const Overview = () => {
           </button>
         </div>
 
-        {/* {renderAnimatedH1('GALLERY', 6)}
+        {renderAnimatedH1('GALLERY', 6)}
         <div className="gallery-slider">
           <button className="gallery-nav-btn left" onClick={() => setCurrentImageIndex((prev) => Math.max(prev - 1, 0))}>
             ◀
@@ -240,7 +240,7 @@ const Overview = () => {
           <button className="gallery-nav-btn right" onClick={() => setCurrentImageIndex((prev) => Math.min(prev + 1, 2))}>
             ▶
           </button>
-        </div> */}
+        </div>
 
 
 

@@ -1,5 +1,5 @@
 // src/App.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 
@@ -49,6 +49,17 @@ function AnimatedRoutes() {
 function App() {
   const [showIntro, setShowIntro] = useState(true);
   const [fadeOut, setFadeOut] = useState(false);
+
+  // ✅ 카카오톡 인앱 브라우저 우회 처리
+  useEffect(() => {
+    const userAgent = navigator.userAgent.toLowerCase();
+    const isKakaoInApp = userAgent.includes("kakaotalk");
+
+    if (isKakaoInApp) {
+      const targetUrl = window.location.href;
+      window.location.href = `kakaotalk://web/openExternal?url=${encodeURIComponent(targetUrl)}`;
+    }
+  }, []);
 
   const handleIntroClick = () => {
     setFadeOut(true);
