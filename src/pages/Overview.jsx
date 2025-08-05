@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState, useMemo } from 'react';
 import '../styles/Overview.css';
 import kakaoIcon from '../assets/footer_kakao.png';
-import instagramIcon from '../assets/instagram.png';
 import navermapIcon from '../assets/navermap.png';
 import kakaomapIcon from '../assets/kakaomap.png';
 
@@ -13,7 +12,8 @@ const Overview = () => {
   });
 
   const h1Refs = useRef([]);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [arrivalImageIndex, setArrivalImageIndex] = useState(0);
+  const [galleryImageIndex, setGalleryImageIndex] = useState(0);
   const [visibleIndexes, setVisibleIndexes] = useState([]);
 
   useEffect(() => {
@@ -92,8 +92,6 @@ const Overview = () => {
       </h1>
     );
   };
-
-  // const mapRef = useRef(null);
   // useEffect(() => {
   //   const script = document.createElement('script');
   //   script.src = 'https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=0';
@@ -128,7 +126,6 @@ const Overview = () => {
   //   document.head.appendChild(script);
   // }, []);
 
-
   return (
     <section id="overview" className="overview-container">
       <div className="overview-text">
@@ -161,18 +158,6 @@ const Overview = () => {
         </div>
 
         {renderAnimatedH1('오시는 길', 3)}
-        {/* <section className="map-section" id="map-section">
-          <div
-            ref={mapRef}
-            style={{
-              width: '80%',
-              height: '300px',
-              margin: '0px',
-              padding: '0px',
-              borderRadius: '8px',
-            }}
-          />
-        </section> */}
         <p className="route">[01369] 서울특별시 도봉구 삼양로 144길 33 덕성여자대학교 쌍문근화캠퍼스 도서관 1층 오스카라운지 (사진 수정 필요)</p>
         <div className="map-menus">
           <a href="https://naver.me/xprtKrM9" className="navermap" target="_blank" rel="noopener noreferrer">
@@ -185,20 +170,36 @@ const Overview = () => {
           </a>
         </div>
         <div className="arrival-slider">
-          <button className="arrival-nav-btn left" onClick={() => setCurrentImageIndex((prev) => Math.max(prev - 1, 0))}>
+          <button className="arrival-nav-btn left" onClick={() => setArrivalImageIndex((prev) => Math.max(prev - 1, 0))}>
             ◀
           </button>
-          <div className="arrival-slide-track" style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}>
+          <div className="arrival-slide-track" style={{ transform: `translateX(-${arrivalImageIndex * 100}%)` }}>
             {['/images/route1.png', '/images/sample2.jpg', '/images/sample3.png'].map((src, index) => (
               <img key={index} src={src} alt={`arrival-${index}`} className="arrival-image" />
             ))}
           </div>
-          <button className="arrival-nav-btn right" onClick={() => setCurrentImageIndex((prev) => Math.min(prev + 1, 2))}>
+          <button className="arrival-nav-btn right" onClick={() => setArrivalImageIndex((prev) => Math.min(prev + 1, 2))}>
             ▶
           </button>
         </div>
 
-        {renderAnimatedH1('POSTER', 4)}
+        {renderAnimatedH1('GALLERY', 4)}
+        <div className="gallery-slider">
+          <button className="gallery-nav-btn left" onClick={() => setGalleryImageIndex((prev) => Math.max(prev - 1, 0))}>
+            ◀
+          </button>
+          <div className="gallery-slide-track" style={{ transform: `translateX(-${galleryImageIndex * 100}%)` }}>
+            {['/images/gallery1.jpg', '/images/gallery2.jpg'].map((src, index) => (
+              <img key={index} src={src} alt={`gallery-${index}`} className="gallery-image" />
+            ))}
+          </div>
+          <button className="gallery-nav-btn right" onClick={() => setGalleryImageIndex((prev) => Math.min(prev + 1, 1))}>
+            ▶
+          </button>
+        </div>
+
+
+        {renderAnimatedH1('POSTER', 5)}
         <div className="poster-wrapper">
           <img
             src="/images/poster.png"
@@ -207,43 +208,13 @@ const Overview = () => {
           />
         </div>
 
-        {renderAnimatedH1('SNS', 5)}
+        {/* {renderAnimatedH1('SNS', 6)} */}
         <div className="sns-buttons">
           <button id="kakao-share-btn">
             <img src={kakaoIcon} alt="카카오톡 공유 아이콘" />
             <span>카카오톡 초대장 공유</span>
           </button>
-          <button
-            id="instagram-btn"
-            onClick={() =>
-              window.open(
-                'https://www.instagram.com/2025_software?igsh=MXRpZzh2MHNlbzBoaA%3D%3D&utm_source=qr',
-                '_blank'
-              )
-            }
-          >
-            <img src={instagramIcon} alt="인스타그램 아이콘" />
-            <span>인스타그램 바로가기</span>
-          </button>
         </div>
-
-        {renderAnimatedH1('GALLERY', 6)}
-        <div className="gallery-slider">
-          <button className="gallery-nav-btn left" onClick={() => setCurrentImageIndex((prev) => Math.max(prev - 1, 0))}>
-            ◀
-          </button>
-          <div className="gallery-slide-track" style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}>
-            {['/images/gallery1.jpg', '/images/gallery2.jpg'].map((src, index) => (
-              <img key={index} src={src} alt={`gallery-${index}`} className="gallery-image" />
-            ))}
-          </div>
-          <button className="gallery-nav-btn right" onClick={() => setCurrentImageIndex((prev) => Math.min(prev + 1, 2))}>
-            ▶
-          </button>
-        </div>
-
-
-
       </div>
     </section>
   );

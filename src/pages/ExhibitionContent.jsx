@@ -1,5 +1,4 @@
 // src/pages/ExhibitionContent.jsx
-import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/ExhibitionContent.css';
 import { projectDetails } from '../data/projectDetails.js';
@@ -17,8 +16,6 @@ const ExhibitionContent = () => (
   <section className="exhibition-content">
     <div className="exhibition-text">
       <h1>덕성여자대학교 소프트웨어전공 <br /> 제 3회 졸업전시: 공명(共鳴)</h1>
-      <h2>졸업 작품 목록</h2>
-      <p>*</p>
     </div>
 
     <div className="project-grid">
@@ -41,7 +38,6 @@ const ExhibitionContent = () => (
               <h3 className="title with-margin">{project.title}</h3>
             )}
             <p className="team">| {project.team}</p>
-            {/* <p className="keywords">{project.keywords.join(' ∙ ')}</p> */}
           </div>
         </Link>
       ))}

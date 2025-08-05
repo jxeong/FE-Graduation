@@ -43,7 +43,7 @@
   font-size: 13px;
   font-weight: 500;
   line-height: 1.9;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 }
 
 /* 디데이 */
@@ -118,7 +118,6 @@
   max-width: 600px;
   margin: 0 auto 30px;
   overflow: hidden;
-  border-radius: 10px;
   margin-bottom: 60px;
 }
 
@@ -133,7 +132,6 @@
   object-fit: contain;
   aspect-ratio: 4 / 3;
   background-color: #ffffff;
-  /* 빈 배경 */
 }
 
 /* 좌우 버튼 */
@@ -141,14 +139,13 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  /* background: rgba(255, 255, 255, 0.8); */
   border: none;
   font-size: 24px;
   padding: 6px 10px;
   border-radius: 50%;
   cursor: pointer;
   z-index: 10;
-  color: rgba(255, 255, 255, 0.6);;
+  filter: invert(1);
   transition: background-color 0.2s ease;
 }
 
@@ -158,10 +155,6 @@
 
 .arrival-nav-btn.right {
   right: 10px;
-}
-
-.arrival-nav-btn:hover {
-  background-color: rgba(200, 200, 200, 0.9);
 }
 
 
@@ -258,7 +251,7 @@ button span {
   max-width: 600px;
   margin: 30px auto;
   overflow: hidden;
-  border-radius: 10px;
+  margin-bottom: 80px;
 }
 
 .gallery-slide-track {
@@ -278,14 +271,13 @@ button span {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  /* background: rgba(255, 255, 255, 0.8); */
   border: none;
   font-size: 24px;
   padding: 6px 10px;
   border-radius: 50%;
   cursor: pointer;
   z-index: 10;
-  color: rgba(255, 255, 255, 0.6);
+  filter: invert(1);
 }
 
 .gallery-nav-btn.left {
