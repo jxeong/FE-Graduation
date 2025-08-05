@@ -58,7 +58,8 @@
 /* 모바일 화면용 스타일 (375px 이하) */
 @media (max-width: 375px) {
   .pdf-viewer-container {
-    padding: 10px;
+    padding: 30px;
+    padding-top: 10px;
   }
 
   .pdf-texts {
@@ -66,7 +67,7 @@
   }
 
   .pdf-viewer-container h1 {
-    font-size: 18px;
+    font-size: 20px;
     line-height: 1.4;
   }
 

@@ -287,3 +287,26 @@ button span {
 .gallery-nav-btn.right {
   right: 10px;
 }
+
+/* 모바일 화면용 스타일 */
+@media (max-width: 375px) {
+  .overview-text h1 {
+  font-size: 21px;
+  margin-bottom: 15px;
+}
+
+.overview-text h2 {
+  font-size: 19px;
+}
+
+.overview-text h3 {
+  font-size: 17px;
+}
+
+  .overview-text p {
+  font-size: 12.5px;
+  font-weight: 500;
+  line-height: 1.9;
+  margin-bottom: 40px;
+}
+}

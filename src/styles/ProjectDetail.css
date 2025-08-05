@@ -356,6 +356,19 @@
   }
 }
 
+@media (max-width: 375px) {
+  .slide-image {
+    width: 100%;
+    min-width: 100%;
+    flex: 0 0 100%;
+  }
+
+  .slide-container {
+    width: 100%;
+  }
+}
+
+
 @keyframes bounce {
 
   0%,

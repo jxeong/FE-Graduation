@@ -42,15 +42,6 @@ p {
 @media (max-width: 375px) {
   header {
     font-size: 18px;
-    padding: 8px 0;
-  }
-
-  .app-container {
-    padding: 0 10px;
-  }
-
-  section {
-    margin: 15px 10px 30px;
   }
 
   h1, h2 {
