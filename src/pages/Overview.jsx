@@ -158,7 +158,7 @@ const Overview = () => {
         </div>
 
         {renderAnimatedH1('오시는 길', 3)}
-        <p className="route">[01369] 서울특별시 도봉구 삼양로 144길 33 덕성여자대학교 쌍문근화캠퍼스 도서관 1층 오스카라운지 (사진 수정 필요)</p>
+        <p className="route">[01369] 서울특별시 도봉구 삼양로 144길 33 덕성여자대학교 쌍문근화캠퍼스 도서관 1층 오스카라운지</p>
         <div className="map-menus">
           <a href="https://naver.me/xprtKrM9" className="navermap" target="_blank" rel="noopener noreferrer">
             <img src={navermapIcon} alt="네이버지도 아이콘" />
@@ -183,7 +183,7 @@ const Overview = () => {
           </button>
         </div>
 
-        {renderAnimatedH1('GALLERY', 4)}
+        {/* {renderAnimatedH1('GALLERY', 4)}
         <div className="gallery-slider">
           <button className="gallery-nav-btn left" onClick={() => setGalleryImageIndex((prev) => Math.max(prev - 1, 0))}>
             ◀
@@ -196,7 +196,7 @@ const Overview = () => {
           <button className="gallery-nav-btn right" onClick={() => setGalleryImageIndex((prev) => Math.min(prev + 1, 1))}>
             ▶
           </button>
-        </div>
+        </div> */}
 
 
         {renderAnimatedH1('POSTER', 5)}

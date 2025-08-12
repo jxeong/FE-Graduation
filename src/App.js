@@ -49,15 +49,15 @@ function App() {
   const [fadeOut, setFadeOut] = useState(false);
 
   // 카카오톡 인앱 브라우저 우회 처리
-  useEffect(() => {
-    const userAgent = navigator.userAgent.toLowerCase();
-    const isKakaoInApp = userAgent.includes("kakaotalk");
+  // useEffect(() => {
+  //   const userAgent = navigator.userAgent.toLowerCase();
+  //   const isKakaoInApp = userAgent.includes("kakaotalk");
 
-    if (isKakaoInApp) {
-      const targetUrl = window.location.href;
-      window.location.href = `kakaotalk://web/openExternal?url=${encodeURIComponent(targetUrl)}`;
-    }
-  }, []);
+  //   if (isKakaoInApp) {
+  //     const targetUrl = window.location.href;
+  //     window.location.href = `kakaotalk://web/openExternal?url=${encodeURIComponent(targetUrl)}`;
+  //   }
+  // }, []);
 
   const handleIntroClick = () => {
     setFadeOut(true);

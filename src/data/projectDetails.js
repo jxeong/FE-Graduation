@@ -212,7 +212,7 @@ ElderEye의 쓰러짐 감지 영역에서는 CNN + AE + GRU + Transformer로 구
     technologies: {
       Languages: ['Python', 'Java'],
       'Frameworks & Libraries': ['Flask', 'Spring Boot', 'Retrofit', 'ResNet-101', 'InSightFace', 'Pytorch'],
-      Tools: ['Android Studio', 'PyCharm', 'VSCode', 'Figma', 'Docker', 'Postman'],
+      Tools: ['Android Studio', 'PyCharm', 'VSCode', 'IntelliJ', 'Figma', 'Docker', 'Postman'],
       DBMS: ['MySQL'],
       'Cloud & Devops': ['AWS'],
       Collaboration: ['Git', 'GitHub', 'Notion'],
