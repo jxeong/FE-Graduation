@@ -174,7 +174,7 @@ const Overview = () => {
             ◀
           </button>
           <div className="arrival-slide-track" style={{ transform: `translateX(-${arrivalImageIndex * 100}%)` }}>
-            {['/images/route1.jpg', '/images/route2.jpg', '/images/route3.jpg', '/images/route4.jpg', '/images/route5.jpg', '/images/route6.jpg', '/images/route7.jpg', '/images/route8.jpg'].map((src, index) => (
+            {['/images/route1.jpeg', '/images/route2.jpg', '/images/route3.jpg', '/images/route4.jpg', '/images/route5.jpg', '/images/route6.jpg', '/images/route7.jpg', '/images/route8.jpg'].map((src, index) => (
               <img key={index} src={src} alt={`arrival-${index}`} className="arrival-image" />
             ))}
           </div>
