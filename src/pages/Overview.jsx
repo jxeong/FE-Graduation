@@ -11,6 +11,17 @@ const Overview = () => {
     days: 0, hours: 0, minutes: 0, seconds: 0,
   });
 
+  const arrivalImages = [
+    '/images/route1.jpeg',
+    '/images/route2.jpg',
+    '/images/route3.jpg',
+    '/images/route4.jpg',
+    '/images/route5.jpg',
+    '/images/route6.jpg',
+    '/images/route7.jpg',
+    '/images/route8.jpg',
+  ];
+
   const h1Refs = useRef([]);
   const [arrivalImageIndex, setArrivalImageIndex] = useState(0);
   const [galleryImageIndex, setGalleryImageIndex] = useState(0);
@@ -170,15 +181,39 @@ const Overview = () => {
           </a>
         </div>
         <div className="arrival-slider">
-          <button className="arrival-nav-btn left" onClick={() => setArrivalImageIndex((prev) => Math.max(prev - 1, 0))}>
+          <button
+            className="arrival-nav-btn left"
+            onClick={() =>
+              setArrivalImageIndex((prev) =>
+                prev === 0 ? arrivalImages.length - 1 : prev - 1
+              )
+            }
+          >
             ◀
           </button>
-          <div className="arrival-slide-track" style={{ transform: `translateX(-${arrivalImageIndex * 100}%)` }}>
-            {['/images/route1.jpeg', '/images/route2.jpg', '/images/route3.jpg', '/images/route4.jpg', '/images/route5.jpg', '/images/route6.jpg', '/images/route7.jpg', '/images/route8.jpg'].map((src, index) => (
-              <img key={index} src={src} alt={`arrival-${index}`} className="arrival-image" />
+
+          <div
+            className="arrival-slide-track"
+            style={{ transform: `translateX(-${arrivalImageIndex * 100}%)` }}
+          >
+            {arrivalImages.map((src, index) => (
+              <img
+                key={index}
+                src={src}
+                alt={`arrival-${index}`}
+                className="arrival-image"
+              />
             ))}
           </div>
-          <button className="arrival-nav-btn right" onClick={() => setArrivalImageIndex((prev) => Math.min(prev + 1, 7))}>
+
+          <button
+            className="arrival-nav-btn right"
+            onClick={() =>
+              setArrivalImageIndex((prev) =>
+                prev === arrivalImages.length - 1 ? 0 : prev + 1
+              )
+            }
+          >
             ▶
           </button>
         </div>
